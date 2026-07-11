@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Hanken_Grotesk } from 'next/font/google';
 import './globals.css';
 
+export const dynamic = 'force-dynamic';
+
 const hanken = Hanken_Grotesk({
   subsets: ['latin'],
   variable: '--font-hanken',
