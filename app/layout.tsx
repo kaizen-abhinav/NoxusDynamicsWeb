@@ -8,8 +8,8 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'CLIMBLABS | Algorithmic Brutalist',
-  description: 'Data-driven SEO systems.',
+  title: 'NOXUSDYNAMICS | Precision Agritech Systems',
+  description: 'Next-generation robotics and AI systems for scalable, high-yield microgreens cultivation.',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+  <!-- Solid black square background -->
+  <rect x="0" y="0" width="400" height="400" fill="#000000"/>
+  
+  <!-- Centered white logo -->
+  <g transform="translate(80, 120)">
+    <defs>
+      <mask id="cutout">
+        <rect x="0" y="0" width="240" height="160" fill="white" />
+        <rect x="116" y="0" width="8" height="160" fill="black"/>
+        <path d="M0 160 L0 58 C0 24 24 0 58 0 L68 0 C38 0 32 18 32 50 L32 160 Z" fill="black"/>
+        <path d="M240 0 L240 102 C240 136 216 160 182 160 L172 160 C202 160 208 142 208 110 L208 0 Z" fill="black"/>
+        <path d="M0 160 C45 125 85 100 120 82 C155 64 195 38 240 0 L240 12 C195 50 155 76 120 94 C85 112 45 137 0 160 Z" fill="black"/>
+      </mask>
+    </defs>
+    <rect x="0" y="0" width="240" height="160" fill="white" mask="url(#cutout)"/>
+  </g>
+</svg>
