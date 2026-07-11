@@ -1,1 +1,28 @@
 @import "tailwindcss";
+
+@layer utilities {
+  .animate-pixel {
+    animation: pixel-blink 4s step-end infinite;
+  }
+}
+
+@keyframes pixel-blink {
+  0% {
+    opacity: var(--base-opacity, 1);
+  }
+  40% {
+    opacity: 0.05;
+  }
+  60% {
+    opacity: var(--base-opacity, 1);
+  }
+  85% {
+    opacity: 0.05;
+  }
+  95% {
+    opacity: var(--base-opacity, 1);
+  }
+  100% {
+    opacity: var(--base-opacity, 1);
+  }
+}

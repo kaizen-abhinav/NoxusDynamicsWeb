@@ -14,7 +14,7 @@ function Header() {
   return (
     <header className="flex flex-col xl:flex-row justify-between items-start xl:items-center p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative">
       <div className="flex items-center gap-4 mb-6 xl:mb-0">
-        <Image src="/logo.svg" alt="NoxusDynamics" width={44} height={44} className="w-11 h-11 flex-shrink-0 rounded-sm shadow-md" />
+        <Image src="/Logo.png" alt="NoxusDynamics" width={44} height={44} className="w-11 h-11 flex-shrink-0 rounded-sm shadow-md" />
         <button onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className="text-2xl tracking-tighter font-extrabold hover:text-[#e2241f] transition-colors cursor-pointer">NOXUSDYNAMICS</button>
       </div>
       
@@ -153,27 +153,26 @@ function Hero() {
         {rightPixels.map(([r, c, o], i) => (
           <div
             key={`r${i}`}
-            className={`absolute bg-[#1a1c1c]${c > 14 ? ' hidden lg:block' : c > 10 ? ' hidden md:block' : ''}${r > 14 ? ' hidden lg:block' : ''}`}
-            style={{ width: S, height: S, bottom: r * T, right: c * T, opacity: o ?? 1 }}
+            className={`absolute bg-[#1a1c1c] animate-pixel${c > 14 ? ' hidden lg:block' : c > 10 ? ' hidden md:block' : ''}${r > 14 ? ' hidden lg:block' : ''}`}
+            style={{ width: S, height: S, bottom: r * T, right: c * T, '--base-opacity': o ?? 1, animationDelay: `${(r % 5 + c % 5) * 0.4}s`, animationDuration: `${4 + (r % 3)}s` } as React.CSSProperties}
           />
         ))}
         {/* Left-side separate cluster */}
         {leftPixels.map(([r, c, o], i) => (
           <div
             key={`l${i}`}
-            className="absolute bg-[#1a1c1c] hidden lg:block"
-            style={{ width: S, height: S, bottom: r * T, left: c * T, opacity: o ?? 1 }}
+            className="absolute bg-[#1a1c1c] hidden lg:block animate-pixel"
+            style={{ width: S, height: S, bottom: r * T, left: c * T, '--base-opacity': o ?? 1, animationDelay: `${(r % 5 + c % 5) * 0.4}s`, animationDuration: `${4 + (r % 3)}s` } as React.CSSProperties}
           />
         ))}
       </div>
-
       <div className="max-w-5xl relative z-10 pl-2 md:pl-8">
         <h1 className="text-[4rem] sm:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-10 text-[#1a1c1c] flex flex-col items-start">
           <div className="flex items-center">
              <span className="w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-[#1a1c1c] mr-4 sm:mr-8 shrink-0"></span>
              Build at the
           </div>
-          <div>Edge</div>
+          <div className="pl-10 sm:pl-[4.5rem]">Edge</div>
         </h1>
         <p className="text-xl sm:text-2xl max-w-2xl mb-16 font-medium leading-relaxed opacity-90 pl-14 sm:pl-20">
           Kerala&apos;s premier robotics innovation lab specializing in agricultural drones, biomechanical prosthetics, and autonomous systems.
@@ -206,11 +205,6 @@ function Services() {
             We combine robotics, AI, and precise climate control for scalable farming. Explore our core modules designed for high-performance cultivation.
          </p>
       </div>
-
-      {/* Decorative grid blocks top right — optimised: smaller, semi-transparent */}
-      <div className="absolute top-28 right-28 w-5 h-5 bg-black/8 hidden xl:block"></div>
-      <div className="absolute top-16 right-52 w-6 h-6 bg-black/6 hidden xl:block"></div>
-      <div className="absolute top-44 right-16 w-3 h-3 bg-[#1a1c1c]/60 hidden xl:block"></div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 border-t-2 border-l-2 border-[#1a1c1c] bg-[#f0f0f0]">
         {/* Card 1 */}
@@ -292,11 +286,6 @@ function Metrics() {
         <p className="text-lg sm:text-xl max-w-xl opacity-80 leading-relaxed ml-14 sm:ml-24 font-medium">
            Hard data. Real impact. We engineer cultivation efficiency through advanced robotics and data-driven farming. No fluff, just crops.
         </p>
-        
-        {/* Decorative pixels top right — optimised: smaller and semi-transparent */}
-        <div className="absolute top-4 right-36 w-6 h-6 bg-[#1a1c1c]/50 hidden lg:block"></div>
-        <div className="absolute top-24 right-16 w-4 h-4 bg-[#1a1c1c]/40 hidden lg:block"></div>
-        <div className="absolute top-40 right-52 w-3 h-3 bg-[#1a1c1c]/60 hidden lg:block"></div>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-0 border-2 border-[#1a1c1c]">
@@ -352,18 +341,6 @@ function Metrics() {
           </button>
         </div>
       </div>
-      
-      {/* Decorative transition line at bottom — optimised: smaller blocks, semi-transparent */}
-      <div className="mt-32 border-b-[6px] border-[#1a1c1c] relative h-12 w-full overflow-hidden">
-         <div className="absolute bottom-0 left-[5%] w-5 h-5 bg-[#1a1c1c]"></div>
-         <div className="absolute bottom-3 left-[12%] w-3 h-3 bg-[#1a1c1c]/70"></div>
-         <div className="absolute bottom-0 left-[22%] w-6 h-6 bg-[#1a1c1c]"></div>
-         <div className="absolute bottom-0 left-[35%] w-4 h-4 bg-[#1a1c1c]/80"></div>
-         <div className="absolute bottom-4 left-[45%] w-3 h-3 bg-[#1a1c1c]/50"></div>
-         <div className="absolute bottom-0 left-[55%] w-8 h-5 bg-[#1a1c1c]"></div>
-         <div className="absolute bottom-2 left-[75%] w-5 h-5 bg-[#1a1c1c]/60"></div>
-         <div className="absolute bottom-0 left-[88%] w-4 h-4 bg-[#1a1c1c]/70"></div>
-      </div>
     </section>
   );
 }
@@ -402,9 +379,6 @@ function Contact() {
 
   return (
     <section id="contact" className="px-6 md:px-12 py-32 bg-[#f0f0f0] flex flex-col xl:flex-row justify-between relative overflow-hidden gap-16 xl:gap-8">
-      {/* Background Decor — optimised */}
-      <div className="absolute top-24 left-52 w-8 h-8 bg-[#1a1c1c]/4 hidden lg:block"></div>
-      <div className="absolute bottom-44 right-1/2 w-10 h-10 bg-[#1a1c1c]/4 hidden lg:block"></div>
       
       <div className="xl:w-5/12 relative z-10 flex flex-col">
         <h2 className="text-[4rem] sm:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-12 uppercase flex flex-col items-start">
@@ -417,21 +391,9 @@ function Contact() {
         <p className="text-xl max-w-lg opacity-80 leading-relaxed mb-16 font-medium pl-14">
            Initiate an agritech deployment dialogue. Provide your operational parameters below and our systems will align an integration strategy.
         </p>
-        
-        <div className="border-l-4 border-[#1a1c1c] pl-8 py-2 font-mono text-xs sm:text-sm tracking-widest space-y-4 uppercase opacity-80 font-bold ml-14 mt-auto">
-           <p className="flex items-center gap-4">
-              Status: <span className="text-green-600 flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-green-600 animate-pulse"></span> Online</span>
-           </p>
-           <p>Response Latency: &lt; 24H</p>
-           <p>Encryption: Active</p>
-        </div>
       </div>
       
       <div className="xl:w-1/2 relative z-10 w-full max-w-3xl xl:max-w-none self-end xl:self-auto">
-         {/* Corner Accents for Form Container — optimised: smaller */}
-         <div className="absolute -top-3 -right-3 w-6 h-6 bg-[#1a1c1c] hidden md:block"></div>
-         <div className="absolute -bottom-3 -left-3 w-6 h-6 bg-[#1a1c1c] hidden md:block"></div>
-         <div className="absolute -bottom-8 right-36 w-5 h-5 bg-[#1a1c1c]/60 hidden md:block"></div>
          
          <form ref={formRef} onSubmit={handleSubmit} className="border-4 border-[#1a1c1c] bg-[#f0f0f0] p-8 sm:p-16 flex flex-col gap-10 relative">
             {/* Success overlay */}
@@ -492,9 +454,9 @@ function Contact() {
               className="bg-[#1a1c1c] text-white py-6 mt-6 font-bold tracking-widest text-base hover:bg-[#e2241f] transition-colors uppercase w-full sm:w-fit sm:px-12 self-start flex items-center justify-center gap-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
             >
               {formState === "submitting" ? (
-                <><Loader2 className="w-5 h-5 animate-spin" /> Transmitting...</>
+                <><Loader2 className="w-5 h-5 animate-spin" /> Sending...</>
               ) : (
-                "[ Initiate Sequence ]"
+                "[ SEND ]"
               )}
             </button>
          </form>
@@ -506,13 +468,6 @@ function Contact() {
 function Projects() {
   return (
     <section id="projects" className="px-6 md:px-12 py-32 bg-[#f0f0f0] relative overflow-hidden">
-      {/* Decorative pixels */}
-      <div className="absolute top-16 right-20 w-4 h-4 bg-[#1a1c1c]/40 hidden lg:block"></div>
-      <div className="absolute top-32 right-40 w-3 h-3 bg-[#1a1c1c]/30 hidden lg:block"></div>
-      <div className="absolute bottom-20 left-16 w-5 h-5 bg-[#1a1c1c]/20 hidden lg:block"></div>
-      <div className="absolute bottom-40 right-12 w-4 h-4 bg-[#1a1c1c]/25 hidden lg:block"></div>
-      <div className="absolute top-48 left-32 w-3 h-3 bg-[#1a1c1c]/15 hidden lg:block"></div>
-
       <div className="mb-16">
         <h2 className="text-[3rem] sm:text-[5rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.9] mb-8 flex items-start">
           <span className="w-6 h-12 sm:w-8 sm:h-16 bg-[#e2241f] mr-6 mt-4 sm:mt-6 shrink-0 block"></span>
@@ -528,41 +483,41 @@ function Projects() {
         {/* Grid overlay */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center py-24 sm:py-36 px-8">
+        <div className="relative z-10 flex flex-col items-center justify-center py-12 sm:py-20 px-8">
           {/* Logo */}
-          <div className="mb-16 relative flex justify-center">
-            <Image src="/logo.svg" alt="NoxusDynamics Logo" width={200} height={200} className="w-40 h-40 sm:w-56 sm:h-56 shadow-2xl rounded-md" priority />
+          <div className="mb-8 relative flex justify-center">
+            <Image src="/Logo.png" alt="NoxusDynamics Logo" width={120} height={120} className="w-20 h-20 sm:w-32 sm:h-32 shadow-2xl rounded-md" priority />
           </div>
 
           {/* Coming Soon Text */}
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-8">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center gap-4 mb-6">
               <span className="w-3 h-3 rounded-full bg-[#e2241f] animate-pulse"></span>
               <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#e2241f]">Under Development</span>
               <span className="w-3 h-3 rounded-full bg-[#e2241f] animate-pulse"></span>
             </div>
-            <h3 className="text-[3.5rem] sm:text-[5.5rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.85] mb-8">
+            <h3 className="text-[2.5rem] sm:text-[4.5rem] lg:text-[6rem] font-bold tracking-tighter leading-[0.85] mb-6">
               Coming<br />Soon
             </h3>
-            <p className="text-base sm:text-lg max-w-lg mx-auto opacity-60 leading-relaxed font-medium">
+            <p className="text-sm sm:text-base max-w-lg mx-auto opacity-60 leading-relaxed font-medium">
               We&apos;re building something extraordinary. Our project portfolio is being prepared for launch — stay tuned for groundbreaking agritech deployments.
             </p>
           </div>
 
           {/* Status indicators */}
-          <div className="flex flex-wrap justify-center gap-8 sm:gap-16 mb-16 font-mono text-xs tracking-widest uppercase">
-            <div className="flex flex-col items-center gap-3">
-              <span className="text-3xl sm:text-4xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">13+</span>
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 mb-8 font-mono text-xs tracking-widest uppercase">
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">13+</span>
               <span className="opacity-50">Projects</span>
             </div>
-            <div className="w-px h-16 bg-[#1a1c1c]/20 hidden sm:block"></div>
-            <div className="flex flex-col items-center gap-3">
-              <span className="text-3xl sm:text-4xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">4</span>
+            <div className="w-px h-12 bg-[#1a1c1c]/20 hidden sm:block"></div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">4</span>
               <span className="opacity-50">In Progress</span>
             </div>
-            <div className="w-px h-16 bg-[#1a1c1c]/20 hidden sm:block"></div>
-            <div className="flex flex-col items-center gap-3">
-              <span className="text-3xl sm:text-4xl font-bold tracking-tighter text-[#e2241f] not-mono font-sans">Q3</span>
+            <div className="w-px h-12 bg-[#1a1c1c]/20 hidden sm:block"></div>
+            <div className="flex flex-col items-center gap-2">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#e2241f] not-mono font-sans">Q3</span>
               <span className="opacity-50">Launch</span>
             </div>
           </div>
@@ -570,17 +525,12 @@ function Projects() {
           {/* CTA */}
           <button
             onClick={() => { const el = document.getElementById("contact"); if (el) el.scrollIntoView({ behavior: "smooth" }); }}
-            className="bg-[#1a1c1c] text-white px-10 py-5 font-bold tracking-widest text-sm hover:bg-[#e2241f] transition-colors uppercase flex items-center gap-4 cursor-pointer"
+            className="bg-[#1a1c1c] text-white px-8 py-4 font-bold tracking-widest text-xs sm:text-sm hover:bg-[#e2241f] transition-colors uppercase flex items-center gap-4 cursor-pointer"
           >
             [ Get Notified ] <ArrowUpRight className="w-4 h-4 stroke-[3]" />
           </button>
         </div>
 
-        {/* Corner decorative squares */}
-        <div className="absolute top-0 left-0 w-8 h-8 border-b-2 border-r-2 border-[#1a1c1c]/10"></div>
-        <div className="absolute top-0 right-0 w-8 h-8 border-b-2 border-l-2 border-[#1a1c1c]/10"></div>
-        <div className="absolute bottom-0 left-0 w-8 h-8 border-t-2 border-r-2 border-[#1a1c1c]/10"></div>
-        <div className="absolute bottom-0 right-0 w-8 h-8 border-t-2 border-l-2 border-[#1a1c1c]/10"></div>
       </div>
     </section>
   );
@@ -605,9 +555,6 @@ function Footer() {
           <div className="flex flex-wrap gap-8 text-xs font-bold font-mono tracking-widest uppercase">
              <button onClick={() => scrollTo("services")} className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors cursor-pointer">Privacy Policy</button>
              <button onClick={() => scrollTo("services")} className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors cursor-pointer">Terms of Service</button>
-             <button onClick={() => scrollTo("hero")} className="hover:text-[#e2241f] flex items-center gap-3 transition-colors cursor-pointer">
-                <span className="w-2.5 h-2.5 bg-green-500 rounded-none border border-transparent"></span> API Status
-             </button>
           </div>
           <p className="text-xs opacity-40 font-mono tracking-widest uppercase mt-4 xl:mt-0">
              © 2025 NOXUSDYNAMICS. DATA-DRIVEN AGRITECH SYSTEMS.
