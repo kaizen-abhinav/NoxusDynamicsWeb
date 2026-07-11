@@ -44,7 +44,7 @@ export function Services() {
     <section id="services" className="px-6 md:px-12 py-32 bg-[#f0f0f0] relative z-10" aria-labelledby="services-title">
       <div className="mb-24">
         <h2 id="services-title" className="text-[3rem] sm:text-[5rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.9] mb-8 flex items-start">
-          <span className="w-6 h-12 sm:w-8 sm:h-16 bg-[#1a1c1c] mr-6 mt-4 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
+          <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#1a1c1c] mr-4 sm:mr-6 mt-2 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
           Precision Agritech<br />Systems
         </h2>
         <p className="text-lg sm:text-xl max-w-xl opacity-80 leading-relaxed ml-12 sm:ml-20">
@@ -58,7 +58,7 @@ export function Services() {
         ))}
       </div>
 
-      <div className="mt-16 bg-[#1a1c1c] text-white p-8 sm:p-16 flex flex-col md:flex-row justify-between items-start md:items-center relative overflow-hidden group hover:bg-[#000000] transition-colors">
+      <div className="mt-16 bg-[#1a1c1c] text-white p-6 sm:p-16 flex flex-col md:flex-row justify-between items-start md:items-center relative overflow-hidden group hover:bg-[#000000] transition-colors">
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
 
         <div className="relative z-10">
@@ -67,7 +67,7 @@ export function Services() {
         </div>
         <button
           onClick={scrollToContact}
-          className="relative z-10 mt-8 md:mt-0 bg-[#e2241f] text-white px-8 py-5 font-bold tracking-widest text-sm hover:bg-white hover:text-[#e2241f] transition-all uppercase flex items-center gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
+          className="relative z-10 mt-8 md:mt-0 bg-[#e2241f] text-white px-8 py-5 font-bold tracking-widest text-sm hover:bg-white hover:text-[#e2241f] transition-all uppercase flex items-center justify-center w-full md:w-auto gap-4 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
           aria-label="Leave a request - scroll to contact form"
         >
           [ Leave a Request ] <ArrowUpRight className="w-5 h-5 stroke-[3]" aria-hidden="true" />

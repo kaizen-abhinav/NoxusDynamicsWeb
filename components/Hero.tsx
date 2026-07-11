@@ -128,7 +128,7 @@ export function Hero() {
     >
       {/* Pixel Cascade Grid - CSS-based animation for performance */}
       <div
-        className="absolute inset-0 z-0 pointer-events-none overflow-hidden"
+        className="absolute inset-0 z-0 pointer-events-none overflow-hidden opacity-20 md:opacity-100"
         aria-hidden="true"
         role="img"
         aria-label="Decorative pixel animation"
