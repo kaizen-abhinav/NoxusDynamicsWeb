@@ -1,0 +1,27 @@
+{
+  "name": "NOXUSDYNAMICS",
+  "short_name": "NOXUSDYNAMICS",
+  "description": "Kerala's premier robotics innovation lab specializing in agritech, prosthetics, and autonomous systems.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f0f0f0",
+  "theme_color": "#1a1c1c",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/Logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["technology", "business", "science"],
+  "lang": "en",
+  "dir": "ltr"
+}

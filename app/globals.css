@@ -1,28 +1,225 @@
 @import "tailwindcss";
 
+@layer base {
+  /* CSS Custom Properties for theming */
+  :root {
+    --color-bg: #f0f0f0;
+    --color-text: #1a1c1c;
+    --color-accent: #e2241f;
+    --color-accent-hover: #c01e1a;
+    --color-border: #1a1c1c;
+    --color-border-light: rgba(26, 28, 28, 0.1);
+    --font-sans: var(--font-hanken);
+    --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus visible styles for accessibility */
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Skip link for keyboard navigation */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent);
+    color: white;
+    padding: 12px 24px;
+    font-weight: 700;
+    z-index: 10000;
+    border-radius: 4px;
+    text-decoration: none;
+  }
+
+  .skip-link:focus {
+    top: 16px;
+  }
+}
+
 @layer utilities {
   .animate-pixel {
     animation: pixel-blink 4s step-end infinite;
   }
+
+  @keyframes pixel-blink {
+    0% {
+      opacity: var(--base-opacity, 1);
+    }
+    40% {
+      opacity: 0.05;
+    }
+    60% {
+      opacity: var(--base-opacity, 1);
+    }
+    85% {
+      opacity: 0.05;
+    }
+    95% {
+      opacity: var(--base-opacity, 1);
+    }
+    100% {
+      opacity: var(--base-opacity, 1);
+    }
+  }
+
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    :root {
+      --color-border-light: #1a1c1c;
+    }
+
+    .bg-white {
+      background-color: #ffffff !important;
+    }
+
+    .text-gray-600 {
+      color: #333333 !important;
+    }
+  }
+
+  /* Print styles */
+  @media print {
+    .no-print {
+      display: none !important;
+    }
+
+    body {
+      background: white !important;
+      color: black !important;
+    }
+
+    a {
+      text-decoration: underline;
+    }
+  }
 }
 
-@keyframes pixel-blink {
-  0% {
-    opacity: var(--base-opacity, 1);
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1a1c1c;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e2241f;
+}
+
+/* Selection styles */
+::selection {
+  background-color: #e2241f;
+  color: white;
+}
+
+/* Image optimization */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Form element base styles */
+input,
+textarea,
+select,
+button {
+  font-family: inherit;
+}
+
+/* Button reset */
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Link styles */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Heading hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  font-weight: 700;
+}
+
+/* Utility classes */
+.text-balance {
+  text-wrap: balance;
+}
+
+.animate-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  40% {
-    opacity: 0.05;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  60% {
-    opacity: var(--base-opacity, 1);
+}
+
+/* Animated send button */
+@keyframes send-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(226, 36, 31, 0.4);
   }
-  85% {
-    opacity: 0.05;
+  50% {
+    box-shadow: 0 0 0 8px rgba(226, 36, 31, 0);
   }
-  95% {
-    opacity: var(--base-opacity, 1);
-  }
-  100% {
-    opacity: var(--base-opacity, 1);
-  }
+}
+
+.send-button {
+  animation: send-pulse 2s ease-out infinite;
+}
+
+.send-button:hover {
+  animation: none;
+}
+
+/* Screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus trap for modals */
+.focus-trap:focus {
+  outline: 3px solid #e2241f;
+  outline-offset: 2px;
 }
