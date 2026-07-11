@@ -1,12 +1,13 @@
 'use client';
 
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export function Header() {
   const [time, setTime] = useState("");
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const update = () => {
@@ -40,7 +41,7 @@ export function Header() {
         className="flex flex-col xl:flex-row justify-between items-start xl:items-center p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
         role="banner"
       >
-        <div className="flex items-center gap-4 mb-6 xl:mb-0">
+        <div className="flex justify-between items-center w-full xl:w-auto">
           <Link href="/" className="flex items-center gap-4 group" aria-label="NOXUSDYNAMICS Home">
             <Image
               src="/Logo.png"
@@ -51,12 +52,21 @@ export function Header() {
               priority
               aria-hidden="true"
             />
-            <span className="text-2xl tracking-tighter font-extrabold group-hover:text-[#e2241f] transition-colors">NOXUSDYNAMICS</span>
+            <span className="text-xl sm:text-2xl tracking-tighter font-extrabold group-hover:text-[#e2241f] transition-colors">NOXUSDYNAMICS</span>
           </Link>
+
+          <button 
+            className="xl:hidden p-2 text-[#1a1c1c] hover:text-[#e2241f] transition-colors" 
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? <X className="w-6 h-6 sm:w-8 sm:h-8" /> : <Menu className="w-6 h-6 sm:w-8 sm:h-8" />}
+          </button>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-8 xl:gap-16 items-start md:items-center w-full xl:w-auto">
-          <div className="flex gap-8 opacity-70 font-mono text-xs" aria-label="Contact info">
+        <div className={`${isMenuOpen ? 'flex' : 'hidden'} xl:flex flex-col xl:flex-row gap-8 xl:gap-16 items-start xl:items-center w-full xl:w-auto mt-8 xl:mt-0`}>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Contact info">
             <time dateTime={new Date().toISOString()}>{time || "00:00:00 GMT"}</time>
             <a href="mailto:hello@noxusdynamics.com" className="hidden sm:inline hover:opacity-100 transition-opacity">
               hello@noxusdynamics.com
@@ -81,7 +91,7 @@ export function Header() {
             </Link>
           </nav>
 
-          <Link href="/#contact" className="text-[#1a1c1c] flex items-center gap-1 hover:opacity-70 transition-opacity ml-auto md:ml-0 font-extrabold" aria-label="Get in touch">
+          <Link href="/#contact" className="text-[#1a1c1c] flex items-center gap-1 hover:opacity-70 transition-opacity ml-0 xl:ml-auto font-extrabold" aria-label="Get in touch">
             GET IN TOUCH <ArrowUpRight className="w-5 h-5 stroke-[3] text-[#e2241f]" aria-hidden="true" />
           </Link>
         </div>

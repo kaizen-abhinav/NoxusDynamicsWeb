@@ -13,7 +13,7 @@ export function Projects() {
     <section id="projects" className="px-6 md:px-12 py-32 bg-[#f0f0f0] relative overflow-hidden" aria-labelledby="projects-title">
       <div className="mb-16">
         <h2 id="projects-title" className="text-[3rem] sm:text-[5rem] lg:text-[7rem] font-bold tracking-tighter leading-[0.9] mb-8 flex items-start">
-          <span className="w-6 h-12 sm:w-8 sm:h-16 bg-[#e2241f] mr-6 mt-4 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
+          <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#e2241f] mr-4 sm:mr-6 mt-2 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
           Our<br />Projects
         </h2>
         <p className="text-lg sm:text-xl max-w-xl opacity-80 leading-relaxed ml-12 sm:ml-20">
@@ -22,11 +22,11 @@ export function Projects() {
       </div>
 
       {/* Coming Soon Display */}
-      <div className="border-4 border-[#1a1c1c] bg-white relative">
+      <div className="border-2 sm:border-4 border-[#1a1c1c] bg-white relative">
         {/* Grid overlay */}
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
 
-        <div className="relative z-10 flex flex-col items-center justify-center py-12 sm:py-20 px-8">
+        <div className="relative z-10 flex flex-col items-center justify-center py-12 sm:py-20 px-4 sm:px-8">
           {/* Logo */}
           <div className="mb-8 relative flex justify-center">
             <Image
