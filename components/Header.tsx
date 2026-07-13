@@ -38,7 +38,7 @@ export function Header() {
       </a>
 
       <header
-        className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
+        className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-4 sm:p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
         role="banner"
       >
         <div className="flex justify-between items-center w-full lg:w-auto">
@@ -52,7 +52,7 @@ export function Header() {
               priority
               aria-hidden="true"
             />
-            <span className="text-xl sm:text-2xl tracking-tighter font-extrabold group-hover:text-[#e2241f] transition-colors">NOXUSDYNAMICS</span>
+            <span className="text-base sm:text-xl md:text-2xl tracking-tighter font-extrabold group-hover:text-[#e2241f] transition-colors">NOXUSDYNAMICS</span>
           </Link>
 
           <button 
@@ -65,7 +65,7 @@ export function Header() {
           </button>
         </div>
 
-        <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-8 lg:mt-0`}>
+        <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0`}>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Contact info">
             <time dateTime={new Date().toISOString()}>{time || "00:00:00 GMT"}</time>
             <a href="mailto:hello@noxusdynamics.com" className="hidden sm:inline hover:opacity-100 transition-opacity">
@@ -73,7 +73,7 @@ export function Header() {
             </a>
           </div>
 
-          <nav className="flex flex-wrap gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">
+          <nav className="flex flex-wrap gap-4 sm:gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">
             <Link href="/#projects" className="hover:text-[#e2241f] transition-colors flex items-center gap-2" aria-label="Projects">
               <span className="w-1.5 h-1.5 bg-[#1a1c1c]" aria-hidden="true"></span> Projects
             </Link>

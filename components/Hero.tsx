@@ -91,26 +91,26 @@ export function Hero() {
     return (
       <section
         id="hero"
-        className="relative pt-16 md:pt-32 pb-48 px-6 md:px-12 min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-8 border-[#1a1c1c]"
+        className="relative pt-12 sm:pt-16 md:pt-32 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
         aria-labelledby="hero-title"
       >
-        <div className="max-w-5xl relative z-10 pl-2 md:pl-8">
+        <div className="max-w-5xl relative z-10 pl-0 sm:pl-2 md:pl-8">
           <h1
             id="hero-title"
-            className="text-[4rem] sm:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-10 text-[#1a1c1c] flex flex-col items-start"
+            className="text-[2.8rem] sm:text-[4rem] md:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-6 sm:mb-10 text-[#1a1c1c] flex flex-col items-start"
           >
             <div className="flex items-center">
-              <span className="w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-[#1a1c1c] mr-4 sm:mr-8 shrink-0" aria-hidden="true"></span>
+              <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 rounded-full bg-[#1a1c1c] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
               Build at the
             </div>
-            <div className="pl-10 sm:pl-[4.5rem]">Edge</div>
+            <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
           </h1>
-          <p className="text-xl sm:text-2xl max-w-2xl mb-16 font-medium leading-relaxed opacity-90 pl-14 sm:pl-20">
+          <p className="text-base sm:text-xl md:text-2xl max-w-2xl mb-8 sm:mb-12 md:mb-16 font-medium leading-relaxed opacity-90 pl-8 sm:pl-14 md:pl-20">
             Kerala&apos;s premier robotics innovation lab specializing in agricultural drones, biomechanical prosthetics, and autonomous systems.
           </p>
           <button
             onClick={scrollToContact}
-            className="text-[#e2241f] font-bold text-lg sm:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-2 ml-10 sm:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f]"
+            className="text-[#e2241f] font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-3 sm:py-2 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f] w-full sm:w-auto text-center"
             aria-label="Leave a request - scroll to contact form"
           >
             [ Leave a Request ]
@@ -123,7 +123,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-16 md:pt-32 pb-48 px-6 md:px-12 min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-8 border-[#1a1c1c]"
+      className="relative pt-12 sm:pt-16 md:pt-32 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
       aria-labelledby="hero-title"
     >
       {/* Pixel Cascade Grid - CSS-based animation for performance */}
@@ -136,23 +136,23 @@ export function Hero() {
         <PixelCascade rightPixels={rightPixels} leftPixels={leftPixels} S={S} T={T} />
       </div>
 
-      <div className="max-w-5xl relative z-10 pl-2 md:pl-8">
+      <div className="max-w-5xl relative z-10 pl-0 sm:pl-2 md:pl-8">
         <h1
           id="hero-title"
-          className="text-[4rem] sm:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-10 text-[#1a1c1c] flex flex-col items-start"
+          className="text-[2.8rem] sm:text-[4rem] md:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-6 sm:mb-10 text-[#1a1c1c] flex flex-col items-start"
         >
           <div className="flex items-center">
-            <span className="w-6 h-6 sm:w-10 sm:h-10 rounded-full bg-[#1a1c1c] mr-4 sm:mr-8 shrink-0" aria-hidden="true"></span>
+            <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 rounded-full bg-[#1a1c1c] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
             Build at the
           </div>
-          <div className="pl-10 sm:pl-[4.5rem]">Edge</div>
+          <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
         </h1>
-        <p className="text-xl sm:text-2xl max-w-2xl mb-16 font-medium leading-relaxed opacity-90 pl-14 sm:pl-20">
+        <p className="text-base sm:text-xl md:text-2xl max-w-2xl mb-8 sm:mb-12 md:mb-16 font-medium leading-relaxed opacity-90 pl-8 sm:pl-14 md:pl-20">
           Kerala&apos;s premier robotics innovation lab specializing in agricultural drones, biomechanical prosthetics, and autonomous systems.
         </p>
         <button
           onClick={scrollToContact}
-          className="text-[#e2241f] font-bold text-lg sm:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-2 ml-10 sm:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f]"
+          className="text-[#e2241f] font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-3 sm:py-2 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f] w-full sm:w-auto text-center"
           aria-label="Leave a request - scroll to contact form"
         >
           [ Leave a Request ]

@@ -32,22 +32,22 @@ export function Metrics() {
   }, []);
 
   return (
-    <section id="metrics" className="px-6 md:px-12 py-32 bg-[#f0f0f0]" aria-labelledby="metrics-title">
+    <section id="metrics" className="px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 bg-[#f0f0f0]" aria-labelledby="metrics-title">
       <div className="mb-24 relative">
-        <h2 id="metrics-title" className="text-[3.5rem] sm:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[0.85] mb-10 flex items-start">
+        <h2 id="metrics-title" className="text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[0.85] mb-6 sm:mb-10 flex items-start">
           <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#1a1c1c] mr-4 sm:mr-6 mt-3 sm:mt-8 shrink-0" aria-hidden="true"></span>
           Proven Yield<br />Metrics
         </h2>
-        <p className="text-lg sm:text-xl max-w-xl opacity-80 leading-relaxed ml-14 sm:ml-24 font-medium">
+        <p className="text-base sm:text-lg md:text-xl max-w-xl opacity-80 leading-relaxed ml-10 sm:ml-14 md:ml-24 font-medium">
           Hard data. Real impact. We engineer cultivation efficiency through advanced robotics and data-driven farming. No fluff, just crops.
         </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 w-full gap-0 border-2 border-[#1a1c1c]">
         {/* Project Alpha - Left White */}
-        <div className="bg-[#f0f0f0] border-r-0 lg:border-r-2 border-b-2 lg:border-b-0 border-[#1a1c1c] p-10 sm:p-20 flex flex-col justify-center">
+        <div className="bg-[#f0f0f0] border-r-0 lg:border-r-2 border-b-2 lg:border-b-0 border-[#1a1c1c] p-6 sm:p-10 md:p-20 flex flex-col justify-center">
           <span className="text-xs font-bold font-mono tracking-widest uppercase opacity-50 mb-8 border border-[#1a1c1c] w-fit px-3 py-1">Urban Farming Sector</span>
-          <h3 className="text-[3rem] sm:text-[4.5rem] font-bold tracking-tighter leading-[0.9] mb-8">Project Alpha:<br/>300% Yield<br/>Increase</h3>
+          <h3 className="text-[2rem] sm:text-[3rem] md:text-[4.5rem] font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">Project Alpha:<br/>300% Yield<br/>Increase</h3>
           <p className="text-base sm:text-lg opacity-80 mb-16 max-w-md font-medium leading-relaxed">
             Deployed autonomous harvesting bots and implemented AI-driven lighting schedules leading to a massive spike in microgreens output over 6 months.
           </p>
@@ -56,8 +56,8 @@ export function Metrics() {
           </button>
         </div>
         {/* Project Alpha - Right Black */}
-        <div className="bg-[#1a1c1c] text-white p-10 sm:p-20 flex flex-col justify-center border-b-2 lg:border-b-0 border-[#1a1c1c] relative overflow-hidden">
-          <div className="text-[5rem] sm:text-[7rem] font-bold tracking-tighter leading-none mb-2 relative z-10">+{counts.yield}%</div>
+        <div className="bg-[#1a1c1c] text-white p-6 sm:p-10 md:p-20 flex flex-col justify-center border-b-2 lg:border-b-0 border-[#1a1c1c] relative overflow-hidden">
+          <div className="text-[3.5rem] sm:text-[5rem] md:text-[7rem] font-bold tracking-tighter leading-none mb-2 relative z-10">+{counts.yield}%</div>
           <div className="text-sm font-mono tracking-widest uppercase opacity-60 relative z-10">Crop Yield</div>
 
           {/* Animated Bar Chart */}
@@ -71,7 +71,7 @@ export function Metrics() {
         </div>
 
         {/* Project Beta - Left Black */}
-        <div className="bg-[#1a1c1c] text-white p-10 sm:p-20 flex flex-col justify-center border-r-0 lg:border-r-2 border-t-0 lg:border-t-2 border-[#1a1c1c]">
+        <div className="bg-[#1a1c1c] text-white p-6 sm:p-10 md:p-20 flex flex-col justify-center border-r-0 lg:border-r-2 border-t-0 lg:border-t-2 border-[#1a1c1c]">
           {/* Animated Ranking Visual */}
           <BarChart
             values={[30, 70, 50, 100]}
@@ -81,13 +81,13 @@ export function Metrics() {
             accentColor="#fff"
           />
 
-          <div className="text-[6rem] sm:text-[8rem] font-bold text-[#e2241f] tracking-tighter leading-none mb-4">{counts.efficiency}%</div>
+          <div className="text-[4rem] sm:text-[6rem] md:text-[8rem] font-bold text-[#e2241f] tracking-tighter leading-none mb-4">{counts.efficiency}%</div>
           <div className="text-sm font-mono tracking-widest uppercase opacity-60">Resource Efficiency</div>
         </div>
         {/* Project Beta - Right White */}
-        <div className="bg-[#f0f0f0] p-10 sm:p-20 flex flex-col justify-center border-t-0 lg:border-t-2 border-[#1a1c1c]">
+        <div className="bg-[#f0f0f0] p-6 sm:p-10 md:p-20 flex flex-col justify-center border-t-0 lg:border-t-2 border-[#1a1c1c]">
           <span className="text-xs font-bold font-mono tracking-widest uppercase opacity-50 mb-8 border border-[#1a1c1c] w-fit px-3 py-1">Commercial Agritech</span>
-          <h3 className="text-[3rem] sm:text-[4.5rem] font-bold tracking-tighter leading-[0.9] mb-8">Project Beta:<br/>Resource<br/>Efficiency</h3>
+          <h3 className="text-[2rem] sm:text-[3rem] md:text-[4.5rem] font-bold tracking-tighter leading-[0.9] mb-6 sm:mb-8">Project Beta:<br/>Resource<br/>Efficiency</h3>
           <p className="text-base sm:text-lg opacity-80 mb-16 max-w-md font-medium leading-relaxed">
             Reduced water usage and optimized nutrient delivery through AI-driven fertigation systems and automated environmental controls.
           </p>

@@ -90,21 +90,21 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="px-6 md:px-12 py-32 bg-[#f0f0f0] flex flex-col xl:flex-row justify-between relative overflow-hidden gap-16 xl:gap-8"
+      className="px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 bg-[#f0f0f0] flex flex-col xl:flex-row justify-between relative overflow-hidden gap-10 sm:gap-16 xl:gap-8"
       aria-labelledby="contact-title"
     >
       <div className="xl:w-5/12 relative z-10 flex flex-col">
         <h2
           id="contact-title"
-          className="text-[4rem] sm:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-12 uppercase flex flex-col items-start"
+          className="text-[2.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-8 sm:mb-12 uppercase flex flex-col items-start"
         >
           <div className="flex items-center">
-            <span className="w-8 h-16 bg-[#1a1c1c] mr-6 shrink-0 inline-block" aria-hidden="true"></span>
+            <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#1a1c1c] mr-3 sm:mr-6 shrink-0 inline-block" aria-hidden="true"></span>
             Leave A
           </div>
           <div>Request</div>
         </h2>
-        <p className="text-xl max-w-lg opacity-80 leading-relaxed mb-16 font-medium pl-14">
+        <p className="text-base sm:text-xl max-w-lg opacity-80 leading-relaxed mb-10 sm:mb-16 font-medium pl-7 sm:pl-14">
           Initiate an agritech deployment dialogue. Provide your operational parameters below and our systems will align an integration strategy.
         </p>
       </div>
@@ -113,7 +113,7 @@ export function Contact() {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          className="border-4 border-[#1a1c1c] bg-[#f0f0f0] p-8 sm:p-16 flex flex-col gap-10 relative"
+          className="border-2 sm:border-4 border-[#1a1c1c] bg-[#f0f0f0] p-5 sm:p-8 md:p-16 flex flex-col gap-6 sm:gap-10 relative"
           noValidate
         >
           {/* Success overlay */}
@@ -149,7 +149,7 @@ export function Contact() {
                 setErrors((prev) => ({ ...prev, name: "" }));
               }}
               placeholder="ENTER YOUR FULL NAME"
-              className={`w-full border-b-4 ${errors.name ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-4 text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
+              className={`w-full border-b-2 sm:border-b-4 ${errors.name ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
               disabled={formState === "submitting" || csrfLoading}
               autoComplete="name"
               required
@@ -177,7 +177,7 @@ export function Contact() {
                 setErrors((prev) => ({ ...prev, email: "" }));
               }}
               placeholder="ENTER YOUR EMAIL ADDRESS"
-              className={`w-full border-b-4 ${errors.email ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-4 text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
+              className={`w-full border-b-2 sm:border-b-4 ${errors.email ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
               disabled={formState === "submitting" || csrfLoading}
               autoComplete="email"
               required
@@ -202,7 +202,7 @@ export function Contact() {
               value={formData.company}
               onChange={(e) => setFormData({ ...formData, company: e.target.value })}
               placeholder="OPTIONAL"
-              className="w-full border-b-4 border-[#1a1c1c] bg-transparent py-4 text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase"
+              className="w-full border-b-2 sm:border-b-4 border-[#1a1c1c] bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase"
               disabled={formState === "submitting" || csrfLoading}
               autoComplete="organization"
               aria-describedby={errors.company ? "company-error" : undefined}
@@ -227,7 +227,7 @@ export function Contact() {
               }}
               placeholder="DESCRIBE YOUR OBJECTIVES..."
               rows={5}
-              className={`w-full border-4 ${errors.message ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent p-6 text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase resize-none mt-2`}
+              className={`w-full border-2 sm:border-4 ${errors.message ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent p-4 sm:p-6 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase resize-none mt-2`}
               disabled={formState === "submitting" || csrfLoading}
               required
               aria-required="true"
@@ -250,7 +250,7 @@ export function Contact() {
           <button
             type="submit"
             disabled={formState === "submitting" || csrfLoading}
-            className="bg-[#1a1c1c] text-white py-6 mt-6 font-bold tracking-widest text-base hover:bg-[#e2241f] transition-colors uppercase w-full sm:w-fit sm:px-12 self-start flex items-center justify-center gap-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0f0f0] send-button"
+            className="bg-[#000000] text-white py-4 sm:py-6 mt-4 sm:mt-6 font-bold tracking-widest text-sm sm:text-base hover:bg-[#e2241f] transition-all duration-300 uppercase w-full sm:w-fit sm:px-12 self-start flex items-center justify-center gap-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0f0f0] send-button"
           >
             {formState === "submitting" ? (
               <>

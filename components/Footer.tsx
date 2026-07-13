@@ -18,13 +18,13 @@ export function Footer({ isTeamPage = false }: FooterProps) {
 
   return (
     <footer
-      className="bg-[#1a1c1c] text-white px-6 md:px-12 pt-24 pb-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-16 border-t-[16px] border-[#e2241f]"
+      className="bg-[#1a1c1c] text-white px-4 sm:px-6 md:px-12 pt-16 sm:pt-24 pb-8 sm:pb-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 sm:gap-16 border-t-8 sm:border-t-[16px] border-[#e2241f]"
       role="contentinfo"
     >
       <div className="max-w-xl">
         <Link
           href={homeUrl}
-          className="text-[3rem] sm:text-[4rem] font-bold tracking-tighter mb-8 leading-none cursor-pointer hover:text-[#e2241f] transition-colors block"
+          className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-bold tracking-tighter mb-4 sm:mb-8 leading-none cursor-pointer hover:text-[#e2241f] transition-colors block"
         >
           NOXUSDYNAMICS
         </Link>

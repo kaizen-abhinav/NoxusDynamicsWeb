@@ -141,30 +141,32 @@ img {
 }
 
 /* Form element base styles */
-input,
-textarea,
-select,
-button {
-  font-family: inherit;
-}
+@layer base {
+  input,
+  textarea,
+  select,
+  button {
+    font-family: inherit;
+  }
 
-/* Button reset */
-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
+  /* Button reset */
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
 
-/* Link styles */
-a {
-  color: inherit;
-  text-decoration: none;
-}
+  /* Link styles */
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 
-/* Heading hierarchy */
-h1, h2, h3, h4, h5, h6 {
-  line-height: 1.1;
-  font-weight: 700;
+  /* Heading hierarchy */
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1;
+    font-weight: 700;
+  }
 }
 
 /* Utility classes */
@@ -190,10 +192,10 @@ h1, h2, h3, h4, h5, h6 {
 /* Animated send button */
 @keyframes send-pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(226, 36, 31, 0.4);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(226, 36, 31, 0);
+    box-shadow: 0 0 0 8px rgba(0, 0, 0, 0);
   }
 }
 
@@ -203,6 +205,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .send-button:hover {
   animation: none;
+  box-shadow: 0 0 0 0 transparent;
 }
 
 /* Screen reader only */
