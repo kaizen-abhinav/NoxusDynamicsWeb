@@ -35,18 +35,18 @@ export function Footer({ isTeamPage = false }: FooterProps) {
 
       <div className="flex flex-col items-start lg:items-end gap-12 w-full lg:w-auto">
         <nav className="flex flex-wrap gap-8 text-xs font-bold font-mono tracking-widest uppercase" aria-label="Footer navigation">
-          <button
-            onClick={() => scrollTo(isTeamPage ? "services" : "#services")}
-            className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
-          >
-            Privacy Policy
-          </button>
-          <button
-            onClick={() => scrollTo(isTeamPage ? "services" : "#services")}
-            className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
-          >
-            Terms of Service
-          </button>
+          <Link
+              href="/privacy-policy"
+              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
+            >
+              Privacy Policy
+            </Link>
+            <Link
+              href="/terms-of-service"
+              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
+            >
+              Terms of Service
+            </Link>
         </nav>
         <p className="text-xs opacity-40 font-mono tracking-widest uppercase mt-4 lg:mt-0" aria-label={`Copyright ${year} NOXUSDYNAMICS`}>
           © {year} NOXUSDYNAMICS. DATA-DRIVEN AGRITECH SYSTEMS.
