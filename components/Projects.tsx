@@ -27,16 +27,9 @@ export function Projects() {
         <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
 
         <div className="relative z-10 flex flex-col items-center justify-center py-8 sm:py-12 md:py-20 px-4 sm:px-8">
-          {/* Logo */}
+          {/* LAMINA Branding */}
           <div className="mb-8 relative flex justify-center">
-            <Image
-              src="/Logo.png"
-              alt="NoxusDynamics Logo"
-              width={120}
-              height={120}
-              className="w-20 h-20 sm:w-32 sm:h-32 shadow-2xl rounded-md"
-              priority
-            />
+            <span className="text-[2.5rem] sm:text-[4rem] md:text-[5rem] font-extrabold tracking-[-0.06em] text-[#1a1c1c] leading-none">LAMINA</span>
           </div>
 
           {/* Coming Soon Text */}
@@ -52,24 +45,6 @@ export function Projects() {
             <p className="text-sm sm:text-base max-w-lg mx-auto opacity-60 leading-relaxed font-medium">
               We&apos;re building something extraordinary. Our project portfolio is being prepared for launch — stay tuned for groundbreaking agritech deployments.
             </p>
-          </div>
-
-          {/* Status indicators */}
-          <div className="flex flex-wrap justify-center gap-6 sm:gap-12 mb-8 font-mono text-xs tracking-widest uppercase">
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">13+</span>
-              <span className="opacity-50">Projects</span>
-            </div>
-            <div className="w-px h-12 bg-[#1a1c1c]/20 hidden sm:block" aria-hidden="true"></div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#1a1c1c] not-mono font-sans">4</span>
-              <span className="opacity-50">In Progress</span>
-            </div>
-            <div className="w-px h-12 bg-[#1a1c1c]/20 hidden sm:block" aria-hidden="true"></div>
-            <div className="flex flex-col items-center gap-2">
-              <span className="text-2xl sm:text-3xl font-bold tracking-tighter text-[#e2241f] not-mono font-sans">Q3</span>
-              <span className="opacity-50">Launch</span>
-            </div>
           </div>
 
           {/* CTA */}

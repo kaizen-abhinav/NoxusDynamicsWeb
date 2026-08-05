@@ -18,7 +18,7 @@ export const organizationSchema = {
     addressRegion: 'Kerala',
     addressCountry: 'IN',
   },
-  description: "Kerala's premier robotics innovation lab specializing in agritech, prosthetics, and autonomous systems.",
+  description: "A next-generation robotics innovation lab specializing in agritech and autonomous systems.",
   foundingDate: '2024',
 };
 
@@ -65,7 +65,7 @@ export function serviceSchema(name: string, description: string, url: string) {
       name: 'NOXUSDYNAMICS',
       url: 'https://noxusdynamics.com',
     },
-    areaServed: 'IN-KL',
+    areaServed: 'IN',
   };
 }
 
