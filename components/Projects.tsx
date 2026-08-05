@@ -81,6 +81,23 @@ export function Projects() {
           </button>
         </div>
       </div>
+
+      {/* Cedar Initiative Banner */}
+      <div className="flex justify-center mt-10 sm:mt-14">
+        <a
+          href="/cedar-initiative.html"
+          className="block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[480px] border-2 sm:border-3 border-[#1a1c1c] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-lg rounded-sm"
+          aria-label="Cedar Initiative by NoxusDynamics — Click to learn more"
+        >
+          <Image
+            src="/cedar-initiative-banner.jpg"
+            alt="Cedar Initiative by NoxusDynamics"
+            width={480}
+            height={252}
+            className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-90"
+          />
+        </a>
+      </div>
     </section>
   );
 }
