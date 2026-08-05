@@ -3,23 +3,12 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Header() {
   const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { duration: 2.5, ease: [0.43, 0.13, 0.23, 0.96] },
-        opacity: { duration: 0.5 },
-      },
-    },
-  };
 
   useEffect(() => {
     const update = () => {
