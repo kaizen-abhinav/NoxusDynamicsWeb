@@ -62,8 +62,7 @@ export function Services() {
         <div className="absolute inset-0 opacity-5 pointer-events-none" style={{ backgroundImage: 'linear-gradient(#fff 1px, transparent 1px), linear-gradient(90deg, #fff 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
 
         <div className="relative z-10">
-          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-3 sm:mb-4">Ready to scale?</h3>
-          <p className="text-sm sm:text-base md:text-lg opacity-70 font-medium">Initiate a baseline analysis of your current farming operations.</p>
+          <h3 className="text-2xl sm:text-4xl md:text-5xl font-bold tracking-tighter">Ready to scale?</h3>
         </div>
         <button
           onClick={scrollToContact}

@@ -1,13 +1,25 @@
 'use client';
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 export function Header() {
   const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const draw = {
+    hidden: { pathLength: 0, opacity: 0 },
+    visible: {
+      pathLength: 1,
+      opacity: 1,
+      transition: {
+        pathLength: { duration: 2.5, ease: [0.43, 0.13, 0.23, 0.96] },
+        opacity: { duration: 0.5 },
+      },
+    },
+  };
 
   useEffect(() => {
     const update = () => {
@@ -57,8 +69,8 @@ export function Header() {
             </span>
           </Link>
 
-          <button 
-            className="lg:hidden p-2 text-[#1a1c1c] hover:text-[#e2241f] transition-colors" 
+          <button
+            className="lg:hidden p-2 text-[#1a1c1c] hover:text-[#e2241f] transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-expanded={isMenuOpen}
             aria-label="Toggle menu"
@@ -69,7 +81,7 @@ export function Header() {
 
         <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0`}>
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Time info">
-            <time dateTime={new Date().toISOString()}>{time || "00:00:00 GMT"}</time>
+            <time suppressHydrationWarning>{time || "00:00:00 GMT"}</time>
           </div>
 
           <nav className="flex flex-wrap gap-4 sm:gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">

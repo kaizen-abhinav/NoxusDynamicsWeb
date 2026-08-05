@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     '',
     '/team',
+    '/privacy-policy',
+    '/terms-of-service',
     '/#projects',
     '/#services',
     '/#metrics',
