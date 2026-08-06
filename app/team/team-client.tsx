@@ -89,6 +89,7 @@ function TeamCard({ name, role, image, alt }: TeamMember) {
           alt={alt}
           fill
           className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+          style={name === "Albin Chacko" ? { objectPosition: "65% center" } : undefined}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         />
       </div>

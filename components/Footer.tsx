@@ -11,11 +11,6 @@ export function Footer({ isTeamPage = false }: FooterProps) {
   const [year] = useState(() => new Date().getFullYear());
   const homeUrl = isTeamPage ? "/" : "/";
 
-  const scrollTo = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <footer
       className="bg-[#1a1c1c] text-white px-4 sm:px-6 md:px-12 pt-16 sm:pt-24 pb-8 sm:pb-12 flex flex-col lg:flex-row justify-between items-start lg:items-end gap-10 sm:gap-16 border-t-8 sm:border-t-[16px] border-[#e2241f]"
@@ -29,24 +24,18 @@ export function Footer({ isTeamPage = false }: FooterProps) {
           NOXUSDYNAMICS
         </Link>
         <p className="text-base sm:text-lg opacity-70 leading-relaxed font-medium">
-          Kerala&apos;s premier robotics innovation lab pushing the boundaries of agritech, prosthetics, and autonomous systems. Founded in Kottayam.
+          A next-generation robotics innovation lab pushing the boundaries of agritech and autonomous systems.
         </p>
       </div>
 
-      <div className="flex flex-col items-start lg:items-end gap-12 w-full lg:w-auto">
+      <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
         <nav className="flex flex-wrap gap-8 text-xs font-bold font-mono tracking-widest uppercase" aria-label="Footer navigation">
-          <Link
-              href="/privacy-policy"
-              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
-            >
-              Privacy Policy
-            </Link>
-            <Link
-              href="/terms-of-service"
-              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
-            >
-              Terms of Service
-            </Link>
+          <a
+            href="mailto:hello@noxusdynamics.com"
+            className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
+          >
+            hello@noxusdynamics.com
+          </a>
         </nav>
         <p className="text-xs opacity-40 font-mono tracking-widest uppercase mt-4 lg:mt-0" aria-label={`Copyright ${year} NOXUSDYNAMICS`}>
           © {year} NOXUSDYNAMICS. DATA-DRIVEN AGRITECH SYSTEMS.

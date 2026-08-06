@@ -106,7 +106,7 @@ export function Hero() {
             <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
           </h1>
           <p className="text-base sm:text-xl md:text-2xl max-w-2xl mb-8 sm:mb-12 md:mb-16 font-medium leading-relaxed opacity-90 pl-8 sm:pl-14 md:pl-20">
-            Kerala&apos;s premier robotics innovation lab specializing in agricultural drones, biomechanical prosthetics, and autonomous systems.
+            A next-generation robotics innovation lab engineering agricultural drones, autonomous systems, and AI-driven agritech solutions.
           </p>
           <button
             onClick={scrollToContact}
@@ -148,7 +148,7 @@ export function Hero() {
           <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
         </h1>
         <p className="text-base sm:text-xl md:text-2xl max-w-2xl mb-8 sm:mb-12 md:mb-16 font-medium leading-relaxed opacity-90 pl-8 sm:pl-14 md:pl-20">
-          Kerala&apos;s premier robotics innovation lab specializing in agricultural drones, biomechanical prosthetics, and autonomous systems.
+          A next-generation robotics innovation lab engineering agricultural drones, autonomous systems, and AI-driven agritech solutions.
         </p>
         <button
           onClick={scrollToContact}

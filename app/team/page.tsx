@@ -4,10 +4,10 @@ import TeamPageClient from './team-client';
 
 export const metadata: Metadata = {
   title: 'Team | NOXUSDYNAMICS',
-  description: 'Meet the team behind NOXUSDYNAMICS - Kerala\'s premier robotics innovation lab specializing in agritech, prosthetics, and autonomous systems.',
+  description: 'Meet the team behind NOXUSDYNAMICS - a next-generation robotics innovation lab specializing in agritech and autonomous systems.',
   openGraph: {
     title: 'Team | NOXUSDYNAMICS',
-    description: 'Meet the team behind NOXUSDYNAMICS - Kerala\'s premier robotics innovation lab.',
+    description: 'Meet the team behind NOXUSDYNAMICS - a next-generation robotics innovation lab.',
     type: 'website',
   },
 };

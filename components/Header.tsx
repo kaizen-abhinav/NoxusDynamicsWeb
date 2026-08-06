@@ -3,23 +3,12 @@
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 export function Header() {
   const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: {
-      pathLength: 1,
-      opacity: 1,
-      transition: {
-        pathLength: { duration: 2.5, ease: [0.43, 0.13, 0.23, 0.96] },
-        opacity: { duration: 0.5 },
-      },
-    },
-  };
 
   useEffect(() => {
     const update = () => {
@@ -54,44 +43,19 @@ export function Header() {
         role="banner"
       >
         <div className="flex justify-between items-center w-full lg:w-auto">
-          <Link href="/" className="relative flex items-center group" aria-label="NOXUSDYNAMICS Home">
-            <div className="relative">
-              <div className="absolute -inset-x-6 -inset-y-3">
-                <motion.svg
-                  width="100%"
-                  height="100%"
-                  viewBox="0 0 300 70"
-                  initial="hidden"
-                  animate="visible"
-                  className="w-full h-full"
-                  preserveAspectRatio="none"
-                >
-                  <title>NOXUSDYNAMICS</title>
-                  <motion.path
-                    d="M 275 10 
-                       C 310 30, 300 60, 150 65
-                       C 20 65, -15 50, 5 35
-                       C 20 10, 70 3, 150 3
-                       C 240 3, 275 18, 275 18"
-                    fill="none"
-                    strokeWidth="2"
-                    stroke="currentColor"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    variants={draw}
-                    className="text-[#1a1c1c] opacity-60"
-                  />
-                </motion.svg>
-              </div>
-              <motion.span
-                className="relative z-10 text-base sm:text-xl md:text-2xl tracking-tighter font-extrabold group-hover:text-[#e2241f] transition-colors"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.3, duration: 0.6 }}
-              >
-                NOXUSDYNAMICS
-              </motion.span>
-            </div>
+          <Link href="/" className="flex items-center gap-2 sm:gap-3 group" aria-label="NOXUSDYNAMICS Home">
+            <Image
+              src="/Logo.png"
+              alt="NOXUSDYNAMICS Logo"
+              width={40}
+              height={40}
+              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex-shrink-0"
+              priority
+              aria-hidden="true"
+            />
+            <span className="text-sm sm:text-lg md:text-xl tracking-tight font-extrabold leading-none">
+              <span className="text-[#1a1c1c]">NOXUS</span><span className="text-[#6B4226]">DYNAMICS</span>
+            </span>
           </Link>
 
           <button
@@ -105,11 +69,8 @@ export function Header() {
         </div>
 
         <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0`}>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Contact info">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Time info">
             <time suppressHydrationWarning>{time || "00:00:00 GMT"}</time>
-            <a href="mailto:hello@noxusdynamics.com" className="hidden sm:inline hover:opacity-100 transition-opacity">
-              hello@noxusdynamics.com
-            </a>
           </div>
 
           <nav className="flex flex-wrap gap-4 sm:gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">
