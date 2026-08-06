@@ -15,9 +15,6 @@ export function Projects() {
           <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#e2241f] mr-4 sm:mr-6 mt-2 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
           Our<br />Projects
         </h2>
-        <p className="text-base sm:text-lg md:text-xl max-w-xl opacity-80 leading-relaxed ml-8 sm:ml-12 md:ml-20">
-          From autonomous farming rigs to AI-powered climate systems — explore the deployments driving the future of agriculture.
-        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
