@@ -91,7 +91,7 @@ export function Hero() {
     return (
       <section
         id="hero"
-        className="relative pt-12 sm:pt-16 md:pt-32 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
+        className="relative pt-8 sm:pt-12 md:pt-16 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-start overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
         aria-labelledby="hero-title"
       >
         <div className="max-w-5xl relative z-10 pl-0 sm:pl-2 md:pl-8">
@@ -123,7 +123,7 @@ export function Hero() {
   return (
     <section
       id="hero"
-      className="relative pt-12 sm:pt-16 md:pt-32 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[70vh] sm:min-h-[85vh] flex flex-col justify-center overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
+      className="relative pt-8 sm:pt-12 md:pt-16 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[50vh] sm:min-h-[60vh] flex flex-col justify-start overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
       aria-labelledby="hero-title"
     >
       {/* Pixel Cascade Grid - CSS-based animation for performance */}
