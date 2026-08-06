@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import emailjs from '@emailjs/nodejs';
 
 // Define the expected form data shape - without index signature to avoid TS4111
 interface ContactFormData {
@@ -157,19 +158,40 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, integrate with your email service (Resend, SendGrid, etc.)
-    // Example with Resend:
-    // import { Resend } from 'resend';
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'Contact Form <contact@noxusdynamics.com>',
-    //   to: 'hello@noxusdynamics.com',
-    //   subject: `New Contact: ${sanitized.name}`,
-    //   text: `Name: ${sanitized.name}\nEmail: ${sanitized.email}\nCompany: ${sanitized.company}\n\n${sanitized.message}`,
-    // });
+    if (!process.env['EMAILJS_SERVICE_ID'] || !process.env['EMAILJS_TEMPLATE_ID'] || !process.env['EMAILJS_PUBLIC_KEY']) {
+      console.error('EmailJS environment variables are not set');
+      return NextResponse.json(
+        { error: 'Email service configuration error' },
+        { status: 500 }
+      );
+    }
 
-    // For now, simulate successful submission
-    console.info('Contact form submission:', {
+    try {
+      await emailjs.send(
+        process.env['EMAILJS_SERVICE_ID'],
+        process.env['EMAILJS_TEMPLATE_ID'],
+        {
+          name: sanitized.name,
+          email: sanitized.email,
+          company: sanitized.company || 'N/A',
+          message: sanitized.message,
+          to_email: 'noxusdynamics@gmail.com',
+          reply_to: sanitized.email,
+        },
+        {
+          publicKey: process.env['EMAILJS_PUBLIC_KEY'],
+          privateKey: process.env['EMAILJS_PRIVATE_KEY'],
+        }
+      );
+    } catch (emailError) {
+      console.error('EmailJS send error:', emailError);
+      return NextResponse.json(
+        { error: 'Failed to send email. Please try again.' },
+        { status: 500 }
+      );
+    }
+
+    console.info('Contact form submission successful:', {
       name: sanitized.name,
       email: sanitized.email,
       company: sanitized.company,
@@ -177,9 +199,6 @@ export async function POST(request: NextRequest) {
       ip,
       timestamp: new Date().toISOString(),
     });
-
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 500));
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully. We\'ll respond within 24 hours.' },
