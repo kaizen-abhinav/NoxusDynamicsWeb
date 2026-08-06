@@ -43,19 +43,15 @@ export function Header() {
         role="banner"
       >
         <div className="flex justify-between items-center w-full lg:w-auto">
-          <Link href="/" className="flex items-center gap-2 sm:gap-3 group" aria-label="NOXUSDYNAMICS Home">
+          <Link href="/" className="flex items-center group" aria-label="NOXUSDYNAMICS Home">
             <Image
-              src="/Logo.png"
+              src="/new-combined-logo.png"
               alt="NOXUSDYNAMICS Logo"
-              width={40}
-              height={40}
-              className="w-8 h-8 sm:w-9 sm:h-9 md:w-10 md:h-10 flex-shrink-0"
+              width={400}
+              height={80}
+              className="h-5 sm:h-6 md:h-8 w-auto flex-shrink-0 object-contain"
               priority
-              aria-hidden="true"
             />
-            <span className="text-sm sm:text-lg md:text-xl tracking-tight font-extrabold leading-none">
-              <span className="text-[#1a1c1c]">NOXUS</span><span className="text-[#6B4226]">DYNAMICS</span>
-            </span>
           </Link>
 
           <button

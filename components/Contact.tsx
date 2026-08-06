@@ -164,7 +164,7 @@ export function Contact() {
             )}
           </div>
 
-          <div className="relative group">
+          <div className="relative group" suppressHydrationWarning>
             <label htmlFor="email" className="block text-xs font-bold font-mono tracking-widest uppercase mb-4 opacity-70">
               Comm Channel [Email]
             </label>
@@ -184,6 +184,9 @@ export function Contact() {
               aria-required="true"
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error" : undefined}
+              data-lpignore="true"
+              data-1p-ignore="true"
+              suppressHydrationWarning
             />
             {errors.email && (
               <span id="email-error" className="text-[#e2241f] text-xs font-mono mt-2 block" role="alert">

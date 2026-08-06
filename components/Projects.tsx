@@ -21,57 +21,75 @@ export function Projects() {
         </p>
       </div>
 
-      {/* Coming Soon Display */}
-      <div className="border-2 sm:border-4 border-[#1a1c1c] bg-white relative">
-        {/* Grid overlay */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
-
-        <div className="relative z-10 flex flex-col items-center justify-center py-8 sm:py-12 md:py-20 px-4 sm:px-8">
-          {/* LAMINA Branding */}
-          <div className="mb-8 relative flex justify-center">
-            <span className="text-[2.5rem] sm:text-[4rem] md:text-[5rem] font-extrabold tracking-[-0.06em] text-[#1a1c1c] leading-none">LAMINA</span>
-          </div>
-
-          {/* Coming Soon Text */}
-          <div className="text-center mb-8">
-            <div className="flex items-center justify-center gap-4 mb-6" aria-hidden="true">
-              <span className="w-3 h-3 rounded-full bg-[#e2241f] animate-pulse"></span>
-              <span className="text-xs font-mono font-bold tracking-[0.3em] uppercase text-[#e2241f]">Under Development</span>
-              <span className="w-3 h-3 rounded-full bg-[#e2241f] animate-pulse"></span>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+        {/* LAMINA Project Card */}
+        <div className="border-2 sm:border-4 border-[#1a1c1c] bg-white relative flex flex-col group">
+          {/* Grid overlay */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
+          
+          <div className="relative z-10 flex flex-col h-full p-6 sm:p-8 md:p-12">
+            {/* Header/Logo */}
+            <div className="mb-8">
+              <span className="text-[2rem] sm:text-[3rem] font-extrabold tracking-[-0.06em] text-[#1a1c1c] leading-none">LAMINA</span>
             </div>
-            <h3 className="text-[2rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[6rem] font-bold tracking-tighter leading-[0.85] mb-4 sm:mb-6">
-              Coming<br />Soon
-            </h3>
-            <p className="text-sm sm:text-base max-w-lg mx-auto opacity-60 leading-relaxed font-medium">
-              We&apos;re building something extraordinary. Our project portfolio is being prepared for launch — stay tuned for groundbreaking agritech deployments.
+            
+            {/* Status Badge */}
+            <div className="flex items-center gap-3 mb-6" aria-hidden="true">
+              <span className="w-2 h-2 rounded-full bg-[#e2241f] animate-pulse"></span>
+              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#e2241f]">Under Development</span>
+            </div>
+            
+            {/* Description */}
+            <p className="text-sm sm:text-base opacity-70 leading-relaxed font-medium mb-12 flex-grow max-w-md">
+              An autonomous modular rig engineered for high-precision canopy management and soil monitoring.
             </p>
+            
+            {/* Footer/CTA */}
+            <button
+              onClick={scrollToContact}
+              className="bg-[#1a1c1c] text-white px-6 sm:px-8 py-3 sm:py-4 font-bold tracking-widest text-xs sm:text-sm hover:bg-[#e2241f] transition-colors uppercase flex items-center justify-between gap-3 sm:gap-4 cursor-pointer w-full mt-auto"
+            >
+              <span>[ Get Notified ]</span> <ArrowUpRight className="w-4 h-4 stroke-[3]" aria-hidden="true" />
+            </button>
           </div>
-
-          {/* CTA */}
-          <button
-            onClick={scrollToContact}
-            className="bg-[#1a1c1c] text-white px-6 sm:px-8 py-3 sm:py-4 font-bold tracking-widest text-xs sm:text-sm hover:bg-[#e2241f] transition-colors uppercase flex items-center gap-3 sm:gap-4 cursor-pointer w-full sm:w-auto justify-center"
-          >
-            [ Get Notified ] <ArrowUpRight className="w-4 h-4 stroke-[3]" aria-hidden="true" />
-          </button>
         </div>
-      </div>
 
-      {/* Cedar Initiative Banner */}
-      <div className="flex justify-center mt-10 sm:mt-14">
-        <a
-          href="/cedar-initiative.html"
-          className="block w-full max-w-[320px] sm:max-w-[420px] md:max-w-[480px] border-2 sm:border-3 border-[#1a1c1c] overflow-hidden group cursor-pointer transition-all duration-300 hover:scale-[1.02] hover:shadow-lg rounded-sm"
-          aria-label="Cedar Initiative by NoxusDynamics — Click to learn more"
-        >
-          <Image
-            src="/cedar-initiative-banner.jpg"
-            alt="Cedar Initiative by NoxusDynamics"
-            width={480}
-            height={252}
-            className="w-full h-auto object-cover transition-opacity duration-300 group-hover:opacity-90"
-          />
-        </a>
+        {/* Cedar Initiative Project Card */}
+        <div className="border-2 sm:border-4 border-[#1a1c1c] bg-white relative flex flex-col group">
+          {/* Grid overlay */}
+          <div className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(#1a1c1c 1px, transparent 1px), linear-gradient(90deg, #1a1c1c 1px, transparent 1px)', backgroundSize: '40px 40px' }} aria-hidden="true"></div>
+          
+          <div className="relative z-10 flex flex-col h-full p-6 sm:p-8 md:p-12">
+            {/* Header/Logo */}
+            <div className="mb-8 relative w-full h-16 sm:h-20 lg:h-24 overflow-hidden rounded-sm border-2 border-[#1a1c1c]">
+              <Image
+                src="/cedar-initiative-banner.jpg"
+                alt="Cedar Initiative"
+                fill
+                className="object-cover object-center grayscale-[0.2] group-hover:grayscale-0 transition-all duration-300"
+              />
+            </div>
+            
+            {/* Status Badge */}
+            <div className="flex items-center gap-3 mb-6" aria-hidden="true">
+              <span className="w-2 h-2 rounded-full bg-[#1a1c1c]"></span>
+              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#1a1c1c]">Active Deployment</span>
+            </div>
+            
+            {/* Description */}
+            <p className="text-sm sm:text-base opacity-70 leading-relaxed font-medium mb-12 flex-grow max-w-md">
+              A targeted forestry and sustainability effort focusing on data-driven ecological restoration.
+            </p>
+            
+            {/* Footer/CTA */}
+            <a
+              href="/cedar-initiative.html"
+              className="bg-transparent border-2 border-[#1a1c1c] text-[#1a1c1c] px-6 sm:px-8 py-3 sm:py-4 font-bold tracking-widest text-xs sm:text-sm hover:bg-[#1a1c1c] hover:text-white transition-colors uppercase flex items-center justify-between gap-3 sm:gap-4 cursor-pointer w-full mt-auto"
+            >
+              <span>[ Read Case Study ]</span> <ArrowUpRight className="w-4 h-4 stroke-[3]" aria-hidden="true" />
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
