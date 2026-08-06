@@ -58,6 +58,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // Output configuration for static export if needed
   // output: 'standalone',
+  async rewrites() {
+    return [
+      {
+        source: '/cedar-initiative',
+        destination: '/cedar-initiative.html',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
