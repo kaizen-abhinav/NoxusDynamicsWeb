@@ -65,7 +65,7 @@ export function Projects() {
           aria-label="Cedar Initiative by NoxusDynamics — Click to learn more"
         >
           <Image
-            src="/cedar-initiative-banner.jpg"
+            src="/cedar-initiative-logo-new.jpg"
             alt="Cedar Initiative by NoxusDynamics"
             width={480}
             height={252}
