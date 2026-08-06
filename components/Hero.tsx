@@ -100,7 +100,7 @@ export function Hero() {
             className="text-[2.8rem] sm:text-[4rem] md:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-6 sm:mb-10 text-[#1a1c1c] flex flex-col items-start"
           >
             <div className="flex items-center">
-              <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 rounded-full bg-[#1a1c1c] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
+              <span className="w-4 h-8 sm:w-6 sm:h-12 md:w-8 md:h-20 bg-[#e2241f] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
               Build at the
             </div>
             <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
@@ -110,7 +110,7 @@ export function Hero() {
           </p>
           <button
             onClick={scrollToContact}
-            className="text-[#e2241f] font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-3 sm:py-2 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f] w-full sm:w-auto text-center"
+            className="bg-[#e2241f] text-white font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-white hover:text-[#e2241f] transition-all px-6 sm:px-8 py-3 sm:py-4 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer w-full sm:w-auto text-center flex items-center justify-center gap-3"
             aria-label="Leave a request - scroll to contact form"
           >
             [ Leave a Request ]
@@ -142,7 +142,7 @@ export function Hero() {
           className="text-[2.8rem] sm:text-[4rem] md:text-[6rem] lg:text-[9rem] font-bold leading-[0.9] tracking-tighter mb-6 sm:mb-10 text-[#1a1c1c] flex flex-col items-start"
         >
           <div className="flex items-center">
-            <span className="w-5 h-5 sm:w-6 sm:h-6 md:w-10 md:h-10 rounded-full bg-[#1a1c1c] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
+            <span className="w-4 h-8 sm:w-6 sm:h-12 md:w-8 md:h-20 bg-[#e2241f] mr-3 sm:mr-4 md:mr-8 shrink-0" aria-hidden="true"></span>
             Build at the
           </div>
           <div className="pl-8 sm:pl-10 md:pl-[4.5rem]">Edge</div>
@@ -152,7 +152,7 @@ export function Hero() {
         </p>
         <button
           onClick={scrollToContact}
-          className="text-[#e2241f] font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-[#e2241f] hover:text-white transition-all px-4 py-3 sm:py-2 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer border-2 border-[#e2241f] hover:border-[#e2241f] w-full sm:w-auto text-center"
+          className="bg-[#e2241f] text-white font-bold text-sm sm:text-lg md:text-xl tracking-widest hover:bg-white hover:text-[#e2241f] transition-all px-6 sm:px-8 py-3 sm:py-4 ml-0 sm:ml-10 md:ml-16 uppercase cursor-pointer w-full sm:w-auto text-center flex items-center justify-center gap-3"
           aria-label="Leave a request - scroll to contact form"
         >
           [ Leave a Request ]

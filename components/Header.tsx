@@ -65,25 +65,26 @@ export function Header() {
         </div>
 
         <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0`}>
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Time info">
-            <time suppressHydrationWarning>{time || "00:00:00 GMT"}</time>
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Location and time info">
+            <span>KOCHI</span>
+            <time suppressHydrationWarning>{time || "00:00:00 GMT+5:30"}</time>
           </div>
 
           <nav className="flex flex-wrap gap-4 sm:gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">
-            <Link href="/#projects" className="hover:text-[#e2241f] transition-colors flex items-center gap-2" aria-label="Projects">
-              <span className="w-1.5 h-1.5 bg-[#1a1c1c]" aria-hidden="true"></span> Projects
+            <Link href="/#projects" className="hover:text-[#e2241f] transition-colors" aria-label="Projects">
+              Projects
             </Link>
-            <Link href="/#services" className="hover:text-[#e2241f] transition-colors flex items-center gap-2" aria-label="Work">
-              <span className="w-1.5 h-1.5 bg-[#1a1c1c]" aria-hidden="true"></span> Work
+            <Link href="/#services" className="hover:text-[#e2241f] transition-colors" aria-label="Work">
+              Work
             </Link>
-            <Link href="/team" className="text-[#e2241f] flex items-center gap-2" aria-label="Team" aria-current="page">
-              <span className="w-1.5 h-1.5 bg-[#e2241f]" aria-hidden="true"></span> Team
+            <Link href="/team" className="text-[#e2241f]" aria-label="Team" aria-current="page">
+              Team
             </Link>
-            <Link href="/#services" className="hover:text-[#e2241f] transition-colors flex items-center gap-2" aria-label="Services">
-              <span className="w-1.5 h-1.5 bg-[#1a1c1c]" aria-hidden="true"></span> Services <sup className="text-[9px] -ml-1 opacity-80">[13]</sup>
+            <Link href="/#services" className="hover:text-[#e2241f] transition-colors" aria-label="Services">
+              Services
             </Link>
-            <Link href="/#contact" className="hover:text-[#e2241f] transition-colors flex items-center gap-2" aria-label="Contact">
-              <span className="w-1.5 h-1.5 bg-[#1a1c1c]" aria-hidden="true"></span> Contacts
+            <Link href="/#contact" className="hover:text-[#e2241f] transition-colors" aria-label="Contact">
+              Contact
             </Link>
           </nav>
 

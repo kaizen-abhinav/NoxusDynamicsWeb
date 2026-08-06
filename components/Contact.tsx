@@ -99,7 +99,7 @@ export function Contact() {
           className="text-[2.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-8 sm:mb-12 uppercase flex flex-col items-start"
         >
           <div className="flex items-center">
-            <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#1a1c1c] mr-3 sm:mr-6 shrink-0 inline-block" aria-hidden="true"></span>
+            <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#e2241f] mr-3 sm:mr-6 shrink-0 inline-block" aria-hidden="true"></span>
             Leave A
           </div>
           <div>Request</div>
@@ -140,23 +140,27 @@ export function Contact() {
             <label htmlFor="name" className="block text-xs font-bold font-mono tracking-widest uppercase mb-4 opacity-70">
               Identifier [Name]
             </label>
-            <input
-              id="name"
-              type="text"
-              value={formData.name}
-              onChange={(e) => {
-                setFormData({ ...formData, name: e.target.value });
-                setErrors((prev) => ({ ...prev, name: "" }));
-              }}
-              placeholder="ENTER YOUR FULL NAME"
-              className={`w-full border-b-2 sm:border-b-4 ${errors.name ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
-              disabled={formState === "submitting" || csrfLoading}
-              autoComplete="name"
-              required
-              aria-required="true"
-              aria-invalid={errors.name ? "true" : "false"}
-              aria-describedby={errors.name ? "name-error" : undefined}
-            />
+            <div>
+              <input
+                id="name"
+                type="text"
+                value={formData.name}
+                onChange={(e) => {
+                  setFormData({ ...formData, name: e.target.value });
+                  setErrors((prev) => ({ ...prev, name: "" }));
+                }}
+                placeholder="ENTER YOUR FULL NAME"
+                className={`w-full border-b-2 sm:border-b-4 ${errors.name ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
+                disabled={formState === "submitting" || csrfLoading}
+                autoComplete="name"
+                required
+                aria-required="true"
+                aria-invalid={errors.name ? "true" : "false"}
+                aria-describedby={errors.name ? "name-error" : undefined}
+                data-lpignore="true"
+                data-1p-ignore="true"
+              />
+            </div>
             {errors.name && (
               <span id="name-error" className="text-[#e2241f] text-xs font-mono mt-2 block" role="alert">
                 {errors.name}
@@ -164,30 +168,31 @@ export function Contact() {
             )}
           </div>
 
-          <div className="relative group" suppressHydrationWarning>
+          <div className="relative group">
             <label htmlFor="email" className="block text-xs font-bold font-mono tracking-widest uppercase mb-4 opacity-70">
               Comm Channel [Email]
             </label>
-            <input
-              id="email"
-              type="email"
-              value={formData.email}
-              onChange={(e) => {
-                setFormData({ ...formData, email: e.target.value });
-                setErrors((prev) => ({ ...prev, email: "" }));
-              }}
-              placeholder="ENTER YOUR EMAIL ADDRESS"
-              className={`w-full border-b-2 sm:border-b-4 ${errors.email ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
-              disabled={formState === "submitting" || csrfLoading}
-              autoComplete="email"
-              required
-              aria-required="true"
-              aria-invalid={errors.email ? "true" : "false"}
-              aria-describedby={errors.email ? "email-error" : undefined}
-              data-lpignore="true"
-              data-1p-ignore="true"
-              suppressHydrationWarning
-            />
+            <div>
+              <input
+                id="email"
+                type="email"
+                value={formData.email}
+                onChange={(e) => {
+                  setFormData({ ...formData, email: e.target.value });
+                  setErrors((prev) => ({ ...prev, email: "" }));
+                }}
+                placeholder="ENTER YOUR EMAIL ADDRESS"
+                className={`w-full border-b-2 sm:border-b-4 ${errors.email ? "border-[#e2241f]" : "border-[#1a1c1c]"} bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase`}
+                disabled={formState === "submitting" || csrfLoading}
+                autoComplete="email"
+                required
+                aria-required="true"
+                aria-invalid={errors.email ? "true" : "false"}
+                aria-describedby={errors.email ? "email-error" : undefined}
+                data-lpignore="true"
+                data-1p-ignore="true"
+              />
+            </div>
             {errors.email && (
               <span id="email-error" className="text-[#e2241f] text-xs font-mono mt-2 block" role="alert">
                 {errors.email}
@@ -197,19 +202,23 @@ export function Contact() {
 
           <div className="relative group">
             <label htmlFor="company" className="block text-xs font-bold font-mono tracking-widest uppercase mb-4 opacity-70">
-              Entity [Company]
+              Entity [Company] — Optional
             </label>
-            <input
-              id="company"
-              type="text"
-              value={formData.company}
-              onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-              placeholder="OPTIONAL"
-              className="w-full border-b-2 sm:border-b-4 border-[#1a1c1c] bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase"
-              disabled={formState === "submitting" || csrfLoading}
-              autoComplete="organization"
-              aria-describedby={errors.company ? "company-error" : undefined}
-            />
+            <div>
+              <input
+                id="company"
+                type="text"
+                value={formData.company}
+                onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                placeholder="ENTER YOUR COMPANY NAME"
+                className="w-full border-b-2 sm:border-b-4 border-[#1a1c1c] bg-transparent py-3 sm:py-4 text-sm sm:text-lg outline-none focus:border-[#e2241f] transition-colors placeholder:text-[#1a1c1c]/20 font-bold uppercase"
+                disabled={formState === "submitting" || csrfLoading}
+                autoComplete="organization"
+                aria-describedby={errors.company ? "company-error" : undefined}
+                data-lpignore="true"
+                data-1p-ignore="true"
+              />
+            </div>
             {errors.company && (
               <span id="company-error" className="text-[#e2241f] text-xs font-mono mt-2 block" role="alert">
                 {errors.company}
@@ -253,7 +262,7 @@ export function Contact() {
           <button
             type="submit"
             disabled={formState === "submitting" || csrfLoading}
-            className="bg-[#000000] text-white py-4 sm:py-6 mt-4 sm:mt-6 font-bold tracking-widest text-sm sm:text-base hover:bg-[#e2241f] transition-all duration-300 uppercase w-full sm:w-fit sm:px-12 self-start flex items-center justify-center gap-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0f0f0] send-button"
+            className="bg-[#e2241f] text-white py-4 sm:py-6 mt-4 sm:mt-6 font-bold tracking-widest text-sm sm:text-base hover:bg-white hover:text-[#e2241f] transition-all duration-300 uppercase w-full sm:w-fit sm:px-12 self-start flex items-center justify-center gap-4 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#f0f0f0] send-button"
           >
             {formState === "submitting" ? (
               <>

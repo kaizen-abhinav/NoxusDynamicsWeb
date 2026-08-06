@@ -67,8 +67,8 @@ export function Projects() {
             
             {/* Status Badge */}
             <div className="flex items-center gap-3 mb-6" aria-hidden="true">
-              <span className="w-2 h-2 rounded-full bg-[#e2241f] animate-pulse"></span>
-              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#e2241f]">Active Deployment</span>
+              <span className="w-2 h-2 rounded-full bg-[#10b981] animate-pulse"></span>
+              <span className="text-xs font-mono font-bold tracking-[0.2em] uppercase text-[#10b981]">Active Deployment</span>
             </div>
             
             {/* Description */}

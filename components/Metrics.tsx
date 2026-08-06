@@ -35,7 +35,7 @@ export function Metrics() {
     <section id="metrics" className="px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 bg-[#f0f0f0]" aria-labelledby="metrics-title">
       <div className="mb-24 relative">
         <h2 id="metrics-title" className="text-[2.5rem] sm:text-[3.5rem] md:text-[5.5rem] lg:text-[7.5rem] font-bold tracking-tighter leading-[0.85] mb-6 sm:mb-10 flex items-start">
-          <span className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-[#1a1c1c] mr-4 sm:mr-6 mt-3 sm:mt-8 shrink-0" aria-hidden="true"></span>
+          <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#e2241f] mr-4 sm:mr-6 mt-2 sm:mt-6 shrink-0 block" aria-hidden="true"></span>
           Proven Yield<br />Metrics
         </h2>
         <p className="text-base sm:text-lg md:text-xl max-w-xl opacity-80 leading-relaxed ml-10 sm:ml-14 md:ml-24 font-medium">
