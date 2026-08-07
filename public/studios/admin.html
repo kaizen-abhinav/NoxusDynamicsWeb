@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Noxus Dynamics - Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#06060A;
+  --red:#FF2800;
+  --acid:#C8FF00;
+  --cream:#F0EDE6;
+  --muted:#5a5856;
+}
+body{min-height:100vh;background:var(--bg);color:var(--cream);font-family:'Space Mono',monospace;display:flex;align-items:center;justify-content:center;padding:40px}
+main{width:min(980px,100%)}
+.admin-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:24px}
+.admin-head h1{font-family:'Bebas Neue',cursive;font-size:64px;letter-spacing:.06em}
+.admin-link{font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--acid);text-decoration:none}
+.panel-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:24px}
+.panel{border:1px solid rgba(255,255,255,.08);padding:32px;background:rgba(8,8,12,.9);box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.panel h2{font-family:'Bebas Neue',cursive;font-size:36px;letter-spacing:.04em;margin-bottom:20px}
+.field{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+.field label{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.input,.textarea{background:#0b0b12;border:1px solid rgba(255,255,255,.12);color:var(--cream);padding:12px 14px;font-size:12px;font-family:'Space Mono',monospace;outline:none;transition:border-color .2s,box-shadow .2s}
+.input:focus,.textarea:focus{border-color:rgba(255,40,0,.6);box-shadow:0 0 0 2px rgba(255,40,0,.15)}
+.textarea{resize:vertical;min-height:120px}
+.btn{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--bg);background:var(--cream);padding:14px 26px;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.35)}
+.msg{margin-top:12px;font-size:11px;color:var(--muted);min-height:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.tools{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:16px}
+.logout{background:none;border:none;color:var(--acid);font-size:10px;letter-spacing:.25em;text-transform:uppercase;cursor:pointer}
+.is-hidden{display:none!important}
+.note{font-size:11px;color:var(--muted);line-height:1.7;margin-top:8px}
+.manage{margin-top:28px;border-top:1px solid rgba(255,255,255,.08);padding-top:20px}
+.manage h3{font-family:'Bebas Neue',cursive;font-size:28px;letter-spacing:.04em;margin-bottom:14px}
+.work-list{display:flex;flex-direction:column;gap:10px;max-height:320px;overflow:auto;padding-right:4px}
+.work-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border:1px solid rgba(255,255,255,.08);background:#0b0b12}
+.work-meta{display:flex;flex-direction:column;gap:4px}
+.work-title{font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+.work-sub{font-size:10px;color:var(--muted)}
+.del-btn{background:none;border:1px solid rgba(255,255,255,.18);color:var(--cream);padding:6px 10px;font-size:9px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:border-color .2s,color .2s}
+.del-btn:hover{border-color:var(--red);color:var(--red)}
+@media(max-width:900px){
+  body{padding:24px}
+  .panel-grid{grid-template-columns:1fr}
+  .grid-2{grid-template-columns:1fr}
+  .admin-head h1{font-size:48px}
+}
+</style>
+</head>
+<body>
+<main>
+  <div class="admin-head">
+    <h1>ADMIN</h1>
+    <a class="admin-link" href="index%20(2).html">Back to Site</a>
+  </div>
+
+  <div class="panel-grid">
+    <form id="loginForm" class="panel" autocomplete="on">
+      <h2>Login</h2>
+      <div class="field">
+        <label for="loginEmail">Admin User ID</label>
+        <input class="input" id="loginEmail" type="email" placeholder="admin@email.com" autocomplete="username" required>
+      </div>
+      <div class="field">
+        <label for="loginPassword">Password</label>
+        <input class="input" id="loginPassword" type="password" placeholder="********" autocomplete="current-password" required>
+      </div>
+      <button class="btn" type="submit"><span>Login</span><span>-&gt;</span></button>
+      <p class="msg" id="loginMsg"></p>
+      <p class="note">Use your Firebase Auth email/password.</p>
+    </form>
+
+    <div id="workPanel" class="panel is-hidden">
+      <div class="tools">
+        <h2>New Work</h2>
+        <button class="logout" id="logoutBtn" type="button">Logout</button>
+      </div>
+      <form id="workForm">
+        <div class="grid-2">
+          <div class="field">
+            <label for="workTitle">Project Title</label>
+            <input class="input" id="workTitle" type="text" placeholder="PACE" required>
+          </div>
+          <div class="field">
+            <label for="workCategory">Category / Industry</label>
+            <input class="input" id="workCategory" type="text" placeholder="Fitness / Wellness" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="workDisplay">Display Text (Big Background)</label>
+          <input class="input" id="workDisplay" type="text" placeholder="PACE">
+        </div>
+        <div class="field">
+          <label for="workDesc">Description</label>
+          <textarea class="textarea" id="workDesc" rows="4" placeholder="Short project summary..." required></textarea>
+        </div>
+        <div class="grid-2">
+          <div class="field">
+            <label for="workImage">Image File</label>
+            <input class="input" id="workImage" type="file" accept="image/*" required>
+          </div>
+          <div class="field">
+            <label for="workLink">Project Link</label>
+            <input class="input" id="workLink" type="url" placeholder="https://..." required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="workTags">Tags (comma separated)</label>
+          <input class="input" id="workTags" type="text" placeholder="Web Design, Branding">
+        </div>
+        <button class="btn" type="submit"><span>Done</span><span>-&gt;</span></button>
+        <p class="msg" id="workMsg"></p>
+        <p class="note">Uploads are stored in Firebase Storage. Max 2MB, min 900x600.</p>
+      </form>
+      <div class="manage">
+        <h3>Manage Works</h3>
+        <div class="work-list" id="workList"></div>
+        <p class="msg" id="workListMsg"></p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-app.js";
+  import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-auth.js";
+  import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, orderBy, query, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-firestore.js";
+  import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from "https://www.gstatic.com/firebasejs/12.13.0/firebase-storage.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyC0XAkcWAo7H0SnPXGmkq8gptE6winDa4s",
+    authDomain: "noxusstudios-3cac7.firebaseapp.com",
+    projectId: "noxusstudios-3cac7",
+    storageBucket: "noxusstudios-3cac7.firebasestorage.app",
+    messagingSenderId: "495008552157",
+    appId: "1:495008552157:web:89c0562270c0b9da02b734",
+    measurementId: "G-GQEF5SQJ74"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  const storage = getStorage(app);
+
+  const loginForm = document.getElementById("loginForm");
+  const loginMsg = document.getElementById("loginMsg");
+  const workPanel = document.getElementById("workPanel");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const workForm = document.getElementById("workForm");
+  const workMsg = document.getElementById("workMsg");
+  const workList = document.getElementById("workList");
+  const workListMsg = document.getElementById("workListMsg");
+
+  const MAX_FILE_SIZE = 2 * 1024 * 1024;
+  const MIN_WIDTH = 900;
+  const MIN_HEIGHT = 600;
+  const MAX_WIDTH = 5000;
+  const MAX_HEIGHT = 5000;
+
+  if (window.location.protocol === "file:"){
+    if (loginMsg) loginMsg.textContent = "Open this page via http(s) (Live Server) for Firebase to work.";
+  }
+
+  function getImageDimensions(file){
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      const url = URL.createObjectURL(file);
+      img.onload = () => {
+        URL.revokeObjectURL(url);
+        resolve({ width: img.naturalWidth, height: img.naturalHeight });
+      };
+      img.onerror = () => {
+        URL.revokeObjectURL(url);
+        reject(new Error("Image load failed"));
+      };
+      img.src = url;
+    });
+  }
+
+  async function validateImage(file){
+    if (!file.type.startsWith("image/")){
+      return { ok: false, message: "File must be an image." };
+    }
+    if (file.size > MAX_FILE_SIZE){
+      return { ok: false, message: "Image must be 2MB or smaller." };
+    }
+    try{
+      const dims = await getImageDimensions(file);
+      if (dims.width < MIN_WIDTH || dims.height < MIN_HEIGHT){
+        return { ok: false, message: "Image must be at least 900x600." };
+      }
+      if (dims.width > MAX_WIDTH || dims.height > MAX_HEIGHT){
+        return { ok: false, message: "Image is too large in dimensions." };
+      }
+    }catch(err){
+      return { ok: false, message: "Could not read image dimensions." };
+    }
+    return { ok: true };
+  }
+
+  function setAuthUI(isAuthed){
+    if (!loginForm || !workPanel) return;
+    loginForm.classList.toggle("is-hidden", isAuthed);
+    workPanel.classList.toggle("is-hidden", !isAuthed);
+  }
+
+  async function syncAdminClaim(user){
+    if (!workForm || !workMsg) return false;
+    if (!user){
+      workMsg.textContent = "Login required.";
+      return false;
+    }
+    try{
+      const token = await user.getIdTokenResult(true);
+      const isAdmin = token.claims && token.claims.admin === true;
+      workForm.querySelectorAll("input,textarea,button").forEach(el => {
+        if (el.id === "logoutBtn") return;
+        el.disabled = !isAdmin;
+      });
+      workMsg.textContent = isAdmin ? "" : "Admin role missing. Ask the owner to grant admin claim.";
+      return isAdmin;
+    }catch(err){
+      workMsg.textContent = "Could not verify admin role.";
+      return false;
+    }
+  }
+
+  function renderWorkList(docs){
+    if (!workList) return;
+    workList.innerHTML = "";
+    if (!docs.length){
+      if (workListMsg) workListMsg.textContent = "No works yet.";
+      return;
+    }
+    if (workListMsg) workListMsg.textContent = "";
+    docs.forEach((snap) => {
+      const data = snap.data();
+      const item = document.createElement("div");
+      item.className = "work-item";
+
+      const meta = document.createElement("div");
+      meta.className = "work-meta";
+      const title = document.createElement("div");
+      title.className = "work-title";
+      title.textContent = data.title || "Untitled";
+      const sub = document.createElement("div");
+      sub.className = "work-sub";
+      sub.textContent = data.category || "";
+      meta.append(title, sub);
+
+      const delBtn = document.createElement("button");
+      delBtn.className = "del-btn";
+      delBtn.type = "button";
+      delBtn.textContent = "Delete";
+      delBtn.addEventListener("click", async () => {
+        const ok = window.confirm("Delete this work item?");
+        if (!ok) return;
+        delBtn.disabled = true;
+        try{
+          if (data.imagePath){
+            await deleteObject(ref(storage, data.imagePath));
+          }
+          await deleteDoc(doc(db, "works", snap.id));
+        }catch(err){
+          if (workListMsg) workListMsg.textContent = "Delete failed. Check Firebase rules.";
+        }finally{
+          delBtn.disabled = false;
+        }
+      });
+
+      item.append(meta, delBtn);
+      workList.appendChild(item);
+    });
+  }
+
+  if (workList){
+    const worksCol = collection(db, "works");
+    const worksQuery = query(worksCol, orderBy("createdAt", "desc"));
+    onSnapshot(worksQuery, (snap) => {
+      renderWorkList(snap.docs);
+    });
+  }
+
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (loginMsg) loginMsg.textContent = "";
+    const email = document.getElementById("loginEmail").value.trim();
+    const pass = document.getElementById("loginPassword").value;
+    try{
+      await signInWithEmailAndPassword(auth, email, pass);
+    }catch(err){
+      if (loginMsg) loginMsg.textContent = "Login failed. Check credentials.";
+    }
+  });
+
+  logoutBtn.addEventListener("click", async () => {
+    await signOut(auth);
+  });
+
+  workForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    if (workMsg) workMsg.textContent = "";
+
+    const title = document.getElementById("workTitle").value.trim();
+    const category = document.getElementById("workCategory").value.trim();
+    const displayText = document.getElementById("workDisplay").value.trim();
+    const description = document.getElementById("workDesc").value.trim();
+    const linkUrl = document.getElementById("workLink").value.trim();
+    const tagsRaw = document.getElementById("workTags").value.trim();
+    const tags = tagsRaw ? tagsRaw.split(",").map(t => t.trim()).filter(Boolean) : [];
+    const fileInput = document.getElementById("workImage");
+    const file = fileInput.files && fileInput.files[0];
+
+    const user = auth.currentUser;
+    if (!user){
+      if (workMsg) workMsg.textContent = "Login required.";
+      return;
+    }
+
+    const isAdmin = await syncAdminClaim(user);
+    if (!isAdmin){
+      return;
+    }
+
+    if (!file){
+      if (workMsg) workMsg.textContent = "Please choose an image file.";
+      return;
+    }
+
+    const validation = await validateImage(file);
+    if (!validation.ok){
+      if (workMsg) workMsg.textContent = validation.message;
+      return;
+    }
+
+    const safeName = file.name.replace(/\s+/g, "-");
+    const filePath = `works/${Date.now()}-${safeName}`;
+
+    const submitBtn = workForm.querySelector("button[type='submit']");
+    if (submitBtn) submitBtn.disabled = true;
+    if (workMsg) workMsg.textContent = "Uploading...";
+
+    try{
+      const storageRef = ref(storage, filePath);
+      await uploadBytes(storageRef, file);
+      const imageUrl = await getDownloadURL(storageRef);
+
+      await addDoc(collection(db, "works"), {
+        title,
+        category,
+        displayText,
+        description,
+        imageUrl,
+        imagePath: filePath,
+        linkUrl,
+        tags,
+        createdAt: serverTimestamp()
+      });
+
+      workForm.reset();
+      if (workMsg) workMsg.textContent = "Work added. It will appear on the homepage.";
+    }catch(err){
+      const code = err && err.code ? err.code : "unknown";
+      if (code === "permission-denied" || code === "storage/unauthorized"){
+        workMsg.textContent = "Upload blocked. Admin claim or rules are missing.";
+      }else{
+        workMsg.textContent = `Upload failed (${code}). Check console.`;
+      }
+      console.error("Work upload failed:", err);
+    }finally{
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+
+  onAuthStateChanged(auth, user => {
+    setAuthUI(Boolean(user));
+    if (user) syncAdminClaim(user);
+  });
+</script>
+</body>
+</html>
