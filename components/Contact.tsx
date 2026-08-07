@@ -114,6 +114,7 @@ export function Contact() {
           onSubmit={handleSubmit}
           className="border border-[#1a1c1c]/20 bg-white p-5 flex flex-col gap-5 relative"
           noValidate
+          suppressHydrationWarning
         >
           {/* Success overlay */}
           {formState === "success" && (
@@ -183,6 +184,8 @@ export function Contact() {
               aria-required="true"
               aria-invalid={errors.email ? "true" : "false"}
               aria-describedby={errors.email ? "email-error-mobile" : undefined}
+              data-lpignore="true"
+              data-1p-ignore="true"
             />
             {errors.email && (
               <span id="email-error-mobile" className="text-[#e2241f] font-mono-terminal text-[9px] mt-1 block" role="alert">
@@ -290,6 +293,7 @@ export function Contact() {
             onSubmit={handleSubmit}
             className="border-2 sm:border-4 border-[#1a1c1c] bg-[#f0f0f0] p-5 sm:p-8 md:p-16 flex flex-col gap-6 sm:gap-10 relative"
             noValidate
+            suppressHydrationWarning
           >
             {/* Success overlay */}
             {formState === "success" && (
