@@ -1,0 +1,54 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isAdmin() {
+      return request.auth != null && request.auth.token.admin == true;
+    }
+
+    function validWork(data) {
+      return data.keys().hasOnly([
+          "title",
+          "category",
+          "displayText",
+          "description",
+          "imageUrl",
+          "imagePath",
+          "linkUrl",
+          "tags",
+          "createdAt"
+        ])
+        && data.title is string
+        && data.category is string
+        && data.displayText is string
+        && data.description is string
+        && data.imageUrl is string
+        && data.imagePath is string
+        && data.linkUrl is string
+        && data.tags is list
+        && data.createdAt is timestamp
+        && data.title.size() > 0
+        && data.title.size() <= 80
+        && data.category.size() > 0
+        && data.category.size() <= 60
+        && data.displayText.size() <= 40
+        && data.description.size() <= 800
+        && data.tags.size() <= 10
+        && data.imageUrl.matches('^https://')
+        && data.linkUrl.matches('^https://')
+        && data.imagePath.matches('^works/.+');
+    }
+
+    match /works/{docId} {
+      allow read: if true;
+      allow create: if isAdmin() && validWork(request.resource.data);
+      allow update: if isAdmin()
+        && validWork(request.resource.data)
+        && request.resource.data.createdAt == resource.data.createdAt;
+      allow delete: if isAdmin();
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
