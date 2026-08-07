@@ -30,27 +30,7 @@ export function Footer({ isTeamPage = false }: FooterProps) {
             Noxus Dynamics
           </Link>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap gap-5 text-[9px] tracking-widest uppercase" aria-label="Footer navigation">
-            <a
-              href="mailto:hello@noxusdynamics.com"
-              className="text-white/50 hover:text-[#e2241f] transition-colors"
-            >
-              TERMINAL
-            </a>
-            <Link
-              href="/#services"
-              className="text-white/50 hover:text-[#e2241f] transition-colors"
-            >
-              ENCRYPTION
-            </Link>
-            <Link
-              href="/#contact"
-              className="text-white/50 hover:text-[#e2241f] transition-colors"
-            >
-              DATA_LOG
-            </Link>
-          </nav>
+
         </div>
 
         {/* Copyright */}
