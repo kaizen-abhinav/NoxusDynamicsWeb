@@ -88,7 +88,7 @@ export function Hero() {
   ];
 
   // Mobile hero content
-  const MobileHero = () => (
+  const renderMobileHero = () => (
     <section
       className="md:hidden relative w-full border-b border-[#1a1c1c]/20 overflow-hidden min-h-[calc(100dvh-4rem)] flex flex-col justify-center px-5 py-8 bg-white"
       aria-labelledby="hero-title"
@@ -152,7 +152,7 @@ export function Hero() {
   if (prefersReducedMotion) {
     return (
       <div id="hero">
-        <MobileHero />
+        {renderMobileHero()}
         {/* Desktop reduced-motion hero */}
         <section
           className="hidden md:flex relative pt-8 sm:pt-12 md:pt-16 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[50vh] sm:min-h-[60vh] flex-col justify-start overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
@@ -187,7 +187,7 @@ export function Hero() {
 
   return (
     <div id="hero">
-      <MobileHero />
+      {renderMobileHero()}
       {/* Desktop hero with pixel cascade */}
       <section
         className="hidden md:flex relative pt-8 sm:pt-12 md:pt-16 pb-24 sm:pb-36 md:pb-48 px-4 sm:px-6 md:px-12 min-h-[50vh] sm:min-h-[60vh] flex-col justify-start overflow-hidden border-b-4 sm:border-b-8 border-[#1a1c1c]"
