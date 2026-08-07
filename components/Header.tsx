@@ -2,13 +2,12 @@
 
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 
 export function Header() {
   const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
 
   useEffect(() => {
     const update = () => {
@@ -28,6 +27,18 @@ export function Header() {
     return () => clearInterval(int);
   }, []);
 
+  // Lock body scroll when drawer is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isMenuOpen]);
+
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
+
   return (
     <>
       {/* Skip to main content link for keyboard navigation */}
@@ -38,8 +49,118 @@ export function Header() {
         Skip to main content
       </a>
 
+      {/* ===== MOBILE HEADER (< md) ===== */}
       <header
-        className="flex flex-col lg:flex-row justify-between items-start lg:items-center p-4 sm:p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
+        className="md:hidden fixed top-0 w-full z-50 bg-[#f9f9f9] text-[#1a1c1c] border-b border-[#1a1c1c]/20 h-16 flex justify-between items-center px-5 transition-colors duration-150"
+        role="banner"
+      >
+        {/* Left: Hamburger + status dots */}
+        <div className="flex items-center gap-3">
+          <button
+            className="p-2 -ml-2 rounded-none transition-colors group"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-expanded={isMenuOpen}
+            aria-label="Toggle menu"
+          >
+            {isMenuOpen ? (
+              <X className="w-5 h-5 text-[#1a1c1c] group-hover:text-[#e2241f] transition-colors" />
+            ) : (
+              <span className="material-symbols-outlined text-[#1a1c1c] group-hover:text-[#e2241f] transition-colors text-xl">menu</span>
+            )}
+          </button>
+          <div className="flex gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#e2241f] animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1a1c1c] opacity-50"></span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#1a1c1c] opacity-50"></span>
+          </div>
+        </div>
+
+        {/* Center: Brand */}
+        <div className="font-headline-terminal text-[16px] font-black tracking-tighter text-[#1a1c1c] uppercase">
+          Noxus Dynamics
+        </div>
+
+        {/* Right: Status + sensor icon */}
+        <div className="flex items-center gap-3">
+          <div className="flex flex-col items-end mr-1">
+            <span className="font-mono-terminal text-[7px] text-[#1a1c1c]/60 uppercase tracking-widest leading-none">SYS.ON</span>
+            <span className="font-mono-terminal text-[7px] text-[#1a1c1c] uppercase tracking-widest leading-none">SEC.OK</span>
+          </div>
+          <button className="p-2 -mr-2 rounded-none transition-colors group" aria-label="System sensors">
+            <span className="material-symbols-outlined text-[#1a1c1c] group-hover:text-[#e2241f] transition-colors text-xl">sensors</span>
+          </button>
+        </div>
+      </header>
+
+      {/* ===== MOBILE NAVIGATION DRAWER ===== */}
+      {isMenuOpen && (
+        <>
+          {/* Backdrop */}
+          <div
+            className="md:hidden fixed inset-0 bg-black/40 z-[55] transition-opacity"
+            onClick={closeMenu}
+            aria-hidden="true"
+          />
+          {/* Drawer */}
+          <aside
+            className="md:hidden fixed inset-y-0 left-0 z-[60] flex flex-col p-6 h-full w-80 max-w-[80vw] bg-[#f9f9f9] border-r border-[#1a1c1c]/20 drawer-enter"
+            id="nav-drawer"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            <div className="font-headline-terminal text-[#1a1c1c] mb-8 border-b border-[#1a1c1c]/20 pb-4 text-[20px] font-black uppercase tracking-tighter">
+              SYSTEM_MENU
+            </div>
+            <nav className="flex flex-col gap-2 font-mono-terminal text-[10px] tracking-[0.08em] font-medium">
+              <Link
+                href="/#projects"
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 hover:bg-[#e8e8e8] transition-colors text-[#1a1c1c] border-l-4 border-transparent uppercase"
+              >
+                <span className="material-symbols-outlined text-lg">precision_manufacturing</span>
+                PROJECTS
+              </Link>
+              <Link
+                href="/#services"
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 transition-colors bg-[#e2241f] text-white font-bold border-l-4 border-[#e2241f] uppercase"
+              >
+                <span className="material-symbols-outlined text-lg">terminal</span>
+                WORK
+              </Link>
+              <Link
+                href="/team"
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 hover:bg-[#e8e8e8] transition-colors text-[#1a1c1c] border-l-4 border-transparent uppercase"
+              >
+                <span className="material-symbols-outlined text-lg">groups</span>
+                TEAM
+              </Link>
+              <Link
+                href="/#services"
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 hover:bg-[#e8e8e8] transition-colors text-[#1a1c1c] border-l-4 border-transparent uppercase"
+              >
+                <span className="material-symbols-outlined text-lg">settings_input_component</span>
+                SERVICES
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 hover:bg-[#e8e8e8] transition-colors text-[#1a1c1c] border-l-4 border-transparent uppercase"
+              >
+                <span className="material-symbols-outlined text-lg">alternate_email</span>
+                CONTACT
+              </Link>
+            </nav>
+          </aside>
+        </>
+      )}
+
+      {/* ===== DESKTOP HEADER (md:+) ===== */}
+      <header
+        className="hidden md:flex flex-col lg:flex-row justify-between items-start lg:items-center p-4 sm:p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
         role="banner"
       >
         <div className="flex justify-between items-center w-full lg:w-auto">
@@ -53,18 +174,9 @@ export function Header() {
               priority
             />
           </Link>
-
-          <button
-            className="lg:hidden p-2 text-[#1a1c1c] hover:text-[#e2241f] transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-expanded={isMenuOpen}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6 sm:w-8 sm:h-8" /> : <Menu className="w-6 h-6 sm:w-8 sm:h-8" />}
-          </button>
         </div>
 
-        <div className={`${isMenuOpen ? 'flex animate-in slide-in-from-top-2 fade-in duration-300' : 'hidden'} lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0`}>
+        <div className="flex lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0">
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Location and time info">
             <span>KOCHI</span>
             <time suppressHydrationWarning>{time || "00:00:00 GMT+5:30"}</time>

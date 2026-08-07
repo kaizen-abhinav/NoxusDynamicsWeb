@@ -22,7 +22,7 @@ export default function Page() {
   const baseUrl = 'https://noxusdynamics.com';
 
   return (
-    <main className="min-h-screen overflow-x-hidden bg-[#f0f0f0] selection:bg-[#e2241f] selection:text-white">
+    <main className="min-h-screen overflow-x-hidden bg-[#f0f0f0] md:bg-[#f0f0f0] selection:bg-[#e2241f] selection:text-white pt-16 md:pt-0" id="main-content">
       {/* Organization Schema */}
       <JsonLd data={organizationSchema} />
       {/* Website Schema */}
