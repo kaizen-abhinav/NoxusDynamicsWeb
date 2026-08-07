@@ -97,11 +97,6 @@ export function Hero() {
       <div className="absolute bottom-0 right-0 w-2/3 h-2/3 pixel-pattern z-0 pointer-events-none opacity-20" aria-hidden="true"></div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10 mt-8">
-        {/* Sys init label */}
-        <div className="flex items-center gap-3 mb-6">
-          <div className="w-1.5 h-6 bg-[#e2241f]"></div>
-          <span className="font-mono-terminal text-[10px] text-[#1a1c1c] font-bold uppercase tracking-[0.2em]">Sys_Init_01</span>
-        </div>
 
         {/* Staggered headline */}
         <h1
@@ -141,11 +136,7 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Bottom-right data stream indicator */}
-      <div className="absolute bottom-6 right-5 font-mono-terminal text-[10px] text-[#1a1c1c]/40 text-right z-20 pointer-events-none">
-        DATA_STREAM_OK<br />
-        [======----] 60%
-      </div>
+
     </section>
   );
 

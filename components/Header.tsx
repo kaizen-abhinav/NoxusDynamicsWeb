@@ -82,10 +82,6 @@ export function Header() {
 
         {/* Right: Status + sensor icon */}
         <div className="flex items-center gap-3">
-          <div className="flex flex-col items-end mr-1">
-            <span className="font-mono-terminal text-[7px] text-[#1a1c1c]/60 uppercase tracking-widest leading-none">SYS.ON</span>
-            <span className="font-mono-terminal text-[7px] text-[#1a1c1c] uppercase tracking-widest leading-none">SEC.OK</span>
-          </div>
           <button className="p-2 -mr-2 rounded-none transition-colors group" aria-label="System sensors">
             <span className="material-symbols-outlined text-[#1a1c1c] group-hover:text-[#e2241f] transition-colors text-xl">sensors</span>
           </button>
@@ -110,7 +106,6 @@ export function Header() {
             aria-label="Navigation menu"
           >
             <div className="font-headline-terminal text-[#1a1c1c] mb-8 border-b border-[#1a1c1c]/20 pb-4 text-[20px] font-black uppercase tracking-tighter">
-              SYSTEM_MENU
             </div>
             <nav className="flex flex-col gap-2 font-mono-terminal text-[10px] tracking-[0.08em] font-medium">
               <Link

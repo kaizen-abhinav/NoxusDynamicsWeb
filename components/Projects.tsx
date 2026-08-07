@@ -17,10 +17,7 @@ export function Projects() {
       >
         {/* Section header */}
         <div className="mb-6">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="w-1.5 h-6 bg-[#e2241f]"></div>
-            <span className="font-mono-terminal text-[10px] text-[#1a1c1c] font-bold uppercase tracking-[0.2em]">Sys_Proj_02</span>
-          </div>
+
           <h2
             id="projects-title-mobile"
             className="font-headline-terminal text-[28px] text-[#1a1c1c] uppercase tracking-tighter font-black leading-[1.1]"

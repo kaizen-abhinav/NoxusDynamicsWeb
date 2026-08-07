@@ -92,7 +92,6 @@ export function Services() {
               </h2>
             </div>
             <div className="font-mono-terminal text-[8px] text-white/50">
-              SYS_VER_3.0 // ACTIVE
             </div>
           </div>
 

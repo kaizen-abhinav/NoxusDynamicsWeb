@@ -55,7 +55,7 @@ export function Footer({ isTeamPage = false }: FooterProps) {
 
         {/* Copyright */}
         <div className="text-white/30 mt-4 pt-4 border-t border-white/10 text-center text-[7px] tracking-widest uppercase relative z-10">
-          ©{year} NOXUS DYNAMICS. ALL RIGHTS RESERVED. // SYS.OP.NORMAL
+          ©{year} NOXUS DYNAMICS. ALL RIGHTS RESERVED.
         </div>
       </footer>
 
