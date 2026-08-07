@@ -66,9 +66,9 @@ const teamJsonLd = {
 
 export default function TeamPage() {
   return (
-    <>
+    <div>
       <JsonLd data={teamJsonLd} />
       <TeamPageClient execs={execs} team={team} />
-    </>
+    </div>
   );
 }

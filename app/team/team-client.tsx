@@ -18,7 +18,7 @@ interface TeamPageClientProps {
 
 export default function TeamPageClient({ execs, team }: TeamPageClientProps) {
   return (
-    <main className="min-h-screen bg-[#f0f0f0] overflow-x-hidden selection:bg-[#e2241f] selection:text-white">
+    <main key="team" className="min-h-screen bg-[#f0f0f0] overflow-x-hidden selection:bg-[#e2241f] selection:text-white">
       <Header />
 
       <section className="py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-12 max-w-[90rem] mx-auto">
