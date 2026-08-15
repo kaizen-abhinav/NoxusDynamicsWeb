@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # Enable version updates for npm dependencies
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
@@ -16,7 +15,7 @@ updates:
     commit-message:
       prefix: "chore(deps)"
 
-  # Enable version updates for GitHub Actions workflows
+  
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
