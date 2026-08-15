@@ -2,6 +2,10 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { ArrowUpRight } from "lucide-react";
+
+// TODO: Update this URL once the domain is purchased
+const STUDIOS_URL = "https://studios.noxusdynamics.com";
 
 interface FooterProps {
   isTeamPage?: boolean;
@@ -29,6 +33,13 @@ export function Footer({ isTeamPage = false }: FooterProps) {
           >
             Noxus Dynamics
           </Link>
+          <a
+            href={STUDIOS_URL}
+            className="flex items-center gap-1 text-white/60 hover:text-[#e2241f] transition-colors text-[9px] tracking-[0.12em] uppercase font-bold"
+            rel="noopener noreferrer"
+          >
+            Noxus Studios <ArrowUpRight className="w-3 h-3 text-[#e2241f]" aria-hidden="true" />
+          </a>
 
 
         </div>
@@ -63,6 +74,13 @@ export function Footer({ isTeamPage = false }: FooterProps) {
               className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
             >
               hello@noxusdynamics.com
+            </a>
+            <a
+              href={STUDIOS_URL}
+              className="flex items-center gap-1 hover:text-[#e2241f] transition-colors"
+              rel="noopener noreferrer"
+            >
+              Noxus Studios <ArrowUpRight className="w-3.5 h-3.5 text-[#e2241f]" aria-hidden="true" />
             </a>
           </nav>
           <p className="text-xs opacity-40 font-mono tracking-widest uppercase mt-4 lg:mt-0" aria-label={`Copyright ${year} NOXUSDYNAMICS`}>
