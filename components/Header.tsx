@@ -5,6 +5,9 @@ import Link from "next/link";
 import { useEffect, useState, useCallback } from "react";
 import Image from "next/image";
 
+// TODO: Update this URL once the domain is purchased
+const STUDIOS_URL = "https://studios.noxusdynamics.com";
+
 export function Header() {
   const [time, setTime] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -148,6 +151,17 @@ export function Header() {
                 <span className="material-symbols-outlined text-lg">alternate_email</span>
                 CONTACT
               </Link>
+              <div className="border-t border-[#1a1c1c]/10 my-2" />
+              <a
+                href={STUDIOS_URL}
+                onClick={closeMenu}
+                className="flex items-center gap-4 px-4 py-3 hover:bg-[#e8e8e8] transition-colors text-[#1a1c1c] border-l-4 border-[#e2241f] uppercase"
+                rel="noopener noreferrer"
+              >
+                <span className="material-symbols-outlined text-lg">movie_edit</span>
+                NOXUS STUDIOS
+                <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-[#e2241f]" aria-hidden="true" />
+              </a>
             </nav>
           </aside>
         </>
@@ -193,6 +207,14 @@ export function Header() {
             <Link href="/#contact" className="hover:text-[#e2241f] transition-colors" aria-label="Contact">
               Contact
             </Link>
+            <a
+              href={STUDIOS_URL}
+              className="flex items-center gap-1 text-[#e2241f] hover:opacity-70 transition-opacity"
+              aria-label="Noxus Studios"
+              rel="noopener noreferrer"
+            >
+              Studios <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
+            </a>
           </nav>
 
           <Link href="/#contact" className="text-[#1a1c1c] flex items-center gap-1 hover:opacity-70 transition-opacity ml-0 lg:ml-auto font-extrabold" aria-label="Get in touch">
