@@ -7,11 +7,11 @@ const securityHeaders = [
     key: 'Content-Security-Policy',
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com",
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.cloudflare.com https://www.gstatic.com",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com data:",
       "img-src 'self' data: https: blob:",
-      "connect-src 'self' https://api.resend.com https://api.sendgrid.com",
+      "connect-src 'self' https://api.resend.com https://api.sendgrid.com https://firestore.googleapis.com",
       "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
       "object-src 'none'",
       "base-uri 'self'",
@@ -85,7 +85,22 @@ function getSessionId(request: NextRequest): string {
 }
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
+  const url = request.nextUrl.clone();
+  const hostname = request.headers.get('host') || '';
+  
+  let response = NextResponse.next();
+
+  // Handle subdomain routing for studios.noxusdynamics.com
+  if (hostname === 'studios.noxusdynamics.com' || hostname.startsWith('studios.')) {
+    if (url.pathname === '/') {
+      url.pathname = '/studios/index.html';
+      response = NextResponse.rewrite(url);
+    } else if (!url.pathname.startsWith('/studios')) {
+      url.pathname = `/studios${url.pathname}`;
+      response = NextResponse.rewrite(url);
+    }
+  }
+
   const ip = getClientIP(request);
 
   // Apply security headers to all responses
@@ -125,6 +140,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|public/).*)',
+    '/((?!_next/static|_next/image|public/).*)',
   ],
 };
