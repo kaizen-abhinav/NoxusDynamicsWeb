@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leave a Request | Noxus Studios — Digital Innovation & Web Development</title>
+  <meta name="description"
+    content="Initiate a digital project dialogue with Noxus Studios. Provide your operational parameters below and our systems will align an integration strategy.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://studios.noxusdynamics.com/contact.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+
+  <!-- Preconnect & Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    (function () {
+      if (typeof emailjs !== 'undefined') {
+        emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" });
+      }
+    })();
+  </script>
+
+  <style>
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #06060A;
+      --card-bg: #0C0C12;
+      --ink: #F0EDE6;
+      --ink-soft: #8A8884;
+      --red: #FF2800;
+      --acid: #C8FF00;
+      --border: rgba(255, 255, 255, 0.15);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Space Mono', monospace;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      overflow-x: hidden;
+      padding: 0;
+    }
+
+    /* HEADER / NAV */
+    header {
+      padding: 24px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(6, 6, 10, 0.95);
+      backdrop-filter: blur(16px);
+    }
+
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--ink);
+    }
+
+    .logo-img {
+      height: 32px;
+      width: auto;
+    }
+
+    .logo-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 26px;
+      letter-spacing: .08em;
+    }
+
+    .nav-back {
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid rgba(240, 237, 230, 0.2);
+      transition: all .25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nav-back:hover {
+      background: var(--red);
+      color: #FFFFFF;
+      border-color: var(--red);
+    }
+
+    /* MAIN CONTAINER */
+    main {
+      flex: 1;
+      max-width: 1400px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 60px 40px;
+      display: flex;
+      align-items: center;
+    }
+
+    .request-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 64px;
+      width: 100%;
+      align-items: start;
+    }
+
+    /* LEFT SIDE */
+    .left-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .title-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .red-square {
+      width: 20px;
+      height: 76px;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 6px;
+      box-shadow: 0 0 16px rgba(255, 40, 0, 0.4);
+    }
+
+    .main-title {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(64px, 10vw, 130px);
+      line-height: .85;
+      letter-spacing: -.01em;
+      color: var(--ink);
+      text-transform: uppercase;
+    }
+
+    .subtitle-p {
+      font-family: 'Space Mono', monospace;
+      font-size: clamp(12px, 1.4vw, 14px);
+      color: var(--ink-soft);
+      line-height: 1.9;
+      max-width: 520px;
+      margin-bottom: 40px;
+    }
+
+    .contact-direct-box {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-lbl {
+      font-size: 10px;
+      letter-spacing: .25em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 700;
+    }
+
+    .contact-val {
+      font-size: 14px;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .contact-val:hover {
+      color: var(--acid);
+    }
+
+    /* RIGHT SIDE — BRUTALIST FRAME */
+    .request-card {
+      background: var(--card-bg);
+      border: 1.5px solid rgba(255, 255, 255, 0.12);
+      padding: 44px 40px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+      position: relative;
+    }
+
+    .field-group {
+      margin-bottom: 32px;
+    }
+
+    .field-label {
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--red);
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .field-input {
+      width: 100%;
+      background: transparent;
+      border: none;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding: 12px 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--ink);
+      outline: none;
+      transition: border-color .25s ease;
+    }
+
+    .field-input::placeholder {
+      color: #5A5856;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+
+    .field-input:focus {
+      border-bottom-color: var(--red);
+    }
+
+    .field-textarea {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1.5px solid rgba(255, 255, 255, 0.15);
+      padding: 16px;
+      font-family: 'Space Mono', monospace;
+      font-size: 13px;
+      color: var(--ink);
+      outline: none;
+      min-height: 140px;
+      resize: vertical;
+      transition: border-color .25s ease;
+    }
+
+    .field-textarea::placeholder {
+      color: #5A5856;
+      text-transform: uppercase;
+      font-size: 12px;
+      letter-spacing: .05em;
+    }
+
+    .field-textarea:focus {
+      border-color: var(--red);
+    }
+
+    /* SUBMIT BUTTON */
+    .submit-btn {
+      width: 100%;
+      background: var(--ink);
+      color: var(--bg);
+      border: 1.5px solid var(--ink);
+      padding: 18px 32px;
+      font-family: 'Bebas Neue', cursive;
+      font-size: 26px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all .25s ease;
+      margin-top: 8px;
+    }
+
+    .submit-btn:hover {
+      background: var(--red);
+      border-color: var(--red);
+      color: #FFFFFF;
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(255, 40, 0, 0.35);
+    }
+
+    .submit-btn:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* STATUS BANNER */
+    .status-msg {
+      margin-top: 20px;
+      padding: 14px 18px;
+      border: 2px solid var(--border);
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: none;
+    }
+
+    .status-msg.success {
+      display: block;
+      background: #D4EDDA;
+      color: #155724;
+      border-color: #C3E6CB;
+    }
+
+    .status-msg.error {
+      display: block;
+      background: #F8D7DA;
+      color: #721C24;
+      border-color: #F5C6CB;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 24px 40px;
+      border-top: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+      background: var(--bg);
+    }
+
+    /* RESPONSIVE BREAKPOINTS */
+    @media (max-width: 1024px) {
+      main { padding: 40px 24px; }
+      .request-grid { grid-template-columns: 1fr; gap: 48px; }
+      .request-card { padding: 32px 24px; }
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 16px 20px; }
+      main { padding: 32px 16px; }
+      footer { padding: 20px 16px; flex-direction: column; gap: 12px; text-align: center; }
+      .red-square { width: 18px; height: 56px; }
+      .main-title { font-size: clamp(52px, 14vw, 84px); }
+      .request-card { padding: 24px 18px; box-shadow: 5px 5px 0px var(--border); }
+      .submit-btn { font-size: 22px; padding: 16px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <a href="index.html" class="logo-wrap" aria-label="Noxus Studios Home">
+      <img src="logo.png" alt="Noxus Studios Logo" class="logo-img" width="32" height="32">
+      <span class="logo-title">NOXUS STUDIOS</span>
+    </a>
+    <a href="index.html" class="nav-back">← RETURN TO HOME</a>
+  </header>
+
+  <!-- MAIN REQUEST SECTION -->
+  <main>
+    <div class="request-grid">
+      
+      <!-- LEFT COLUMN -->
+      <div class="left-col">
+        <div class="title-row">
+          <span class="red-square"></span>
+          <h1 class="main-title">LEAVE A<br>REQUEST</h1>
+        </div>
+        <p class="subtitle-p">
+          Initiate a digital project dialogue. Provide your operational parameters below and our systems will align an integration strategy.
+        </p>
+        <div class="contact-direct-box">
+          <span class="contact-lbl">COMMUNICATION ENDPOINT</span>
+          <a href="mailto:hello@noxusdynamics.com" class="contact-val">hello@noxusdynamics.com</a>
+          <span class="contact-lbl" style="margin-top: 12px;">GEOGRAPHIC REGION</span>
+          <span class="contact-val">Kerala, India — Worldwide Service</span>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN — BRUTALIST FORM CARD -->
+      <div class="request-card">
+        <form id="requestForm">
+          
+          <div class="field-group">
+            <label class="field-label" for="userName">IDENTIFIER [NAME]</label>
+            <input type="text" id="userName" name="user_name" class="field-input" placeholder="ENTER YOUR FULL NAME" required>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="userEmail">COMM CHANNEL [EMAIL]</label>
+            <input type="email" id="userEmail" name="user_email" class="field-input" placeholder="ENTER YOUR EMAIL ADDRESS" required>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="userCompany">ENTITY [COMPANY] — OPTIONAL</label>
+            <input type="text" id="userCompany" name="user_company" class="field-input" placeholder="ENTER YOUR COMPANY NAME">
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="userMessage">PAYLOAD [MESSAGE]</label>
+            <textarea id="userMessage" name="message" class="field-textarea" placeholder="DESCRIBE YOUR OBJECTIVES..." required></textarea>
+          </div>
+
+          <button type="submit" id="submitBtn" class="submit-btn">
+            <span id="btnText">TRANSMIT REQUEST</span>
+            <span>→</span>
+          </button>
+
+          <div id="statusMsg" class="status-msg"></div>
+
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 NOXUS STUDIOS — NOXUS DYNAMICS</span>
+    <span>ALL SYSTEMS OPERATIONAL</span>
+  </footer>
+
+  <script>
+    const form = document.getElementById('requestForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const btnText = document.getElementById('btnText');
+    const statusMsg = document.getElementById('statusMsg');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('userName').value.trim();
+      const email = document.getElementById('userEmail').value.trim();
+      const company = document.getElementById('userCompany').value.trim();
+      const message = document.getElementById('userMessage').value.trim();
+
+      if (!name || !email || !message) {
+        showStatus('error', '[ ERROR: PLEASE FILL ALL REQUIRED FIELDS ]');
+        return;
+      }
+
+      submitBtn.disabled = true;
+      btnText.textContent = 'TRANSMITTING PARAMETERS...';
+      statusMsg.className = 'status-msg';
+
+      const SERVICE_ID = 'service_v6u2oi3';
+      const TEMPLATE_ID = 'template_noxus'; // Replace with your EmailJS Template ID
+      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS Public Key
+
+      if (typeof emailjs !== 'undefined' && PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+        emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+          user_name: name,
+          user_email: email,
+          user_company: company || 'Not specified',
+          message: message
+        }, PUBLIC_KEY).then(() => {
+          showStatus('success', '[ TRANSMISSION SUCCESSFUL ✔ — OUR TEAM WILL ALIGN AN INTEGRATION STRATEGY ]');
+          form.reset();
+          submitBtn.disabled = false;
+          btnText.textContent = 'TRANSMIT REQUEST';
+        }).catch((err) => {
+          console.error('EmailJS Send Error:', err);
+          fallbackToMailto(name, email, company, message);
+        });
+      } else {
+        // Fallback to direct mailto if template or public key is unconfigured
+        setTimeout(() => {
+          fallbackToMailto(name, email, company, message);
+        }, 600);
+      }
+    });
+
+    function fallbackToMailto(name, email, company, message) {
+      showStatus('success', '[ REDIRECTING TO DIRECT MAIL ENDPOINT... ]');
+      const subject = encodeURIComponent(`Project Request from ${name} (${company || 'Individual'})`);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nCompany: ${company || 'N/A'}\n\nObjectives:\n${message}`);
+      window.location.href = `mailto:hello@noxusdynamics.com?subject=${subject}&body=${body}`;
+      submitBtn.disabled = false;
+      btnText.textContent = 'TRANSMIT REQUEST';
+    }
+
+    function showStatus(type, msg) {
+      statusMsg.textContent = msg;
+      statusMsg.className = `status-msg ${type}`;
+    }
+  </script>
+</body>
+</html>
