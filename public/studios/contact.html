@@ -23,7 +23,7 @@
   <script>
     (function () {
       if (typeof emailjs !== 'undefined') {
-        emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" });
+        emailjs.init({ publicKey: "KinRz5RPRVH1vhJ6M" });
       }
     })();
   </script>
@@ -395,6 +395,8 @@
           <a href="mailto:hello@noxusdynamics.com" class="contact-val">hello@noxusdynamics.com</a>
           <span class="contact-lbl" style="margin-top: 12px;">GEOGRAPHIC REGION</span>
           <span class="contact-val">Kerala, India — Worldwide Service</span>
+          <span class="contact-lbl" style="margin-top: 12px;">DIRECT LINE</span>
+          <a href="tel:+919562375601" class="contact-val">+91 95623 75601</a>
         </div>
       </div>
 
@@ -465,30 +467,53 @@
       statusMsg.className = 'status-msg';
 
       const SERVICE_ID = 'service_v6u2oi3';
-      const TEMPLATE_ID = 'template_noxus'; // Replace with your EmailJS Template ID
-      const PUBLIC_KEY = 'YOUR_PUBLIC_KEY'; // Replace with your EmailJS Public Key
+      const TEMPLATE_ID = 'template_r2fjzb7';
+      const PUBLIC_KEY = 'KinRz5RPRVH1vhJ6M';
 
-      if (typeof emailjs !== 'undefined' && PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
-        emailjs.send(SERVICE_ID, TEMPLATE_ID, {
-          user_name: name,
-          user_email: email,
-          user_company: company || 'Not specified',
+      // 1. Try sending via local Next.js /api/contact endpoint
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: name,
+          email: email,
+          company: company || '',
           message: message
-        }, PUBLIC_KEY).then(() => {
-          showStatus('success', '[ TRANSMISSION SUCCESSFUL ✔ — OUR TEAM WILL ALIGN AN INTEGRATION STRATEGY ]');
-          form.reset();
-          submitBtn.disabled = false;
-          btnText.textContent = 'TRANSMIT REQUEST';
-        }).catch((err) => {
-          console.error('EmailJS Send Error:', err);
+        })
+      })
+      .then(res => {
+        if (!res.ok) throw new Error('API route failed, trying direct EmailJS');
+        return res.json();
+      })
+      .then(() => {
+        showStatus('success', '[ TRANSMISSION SUCCESSFUL ✔ — OUR TEAM WILL ALIGN AN INTEGRATION STRATEGY ]');
+        form.reset();
+        submitBtn.disabled = false;
+        btnText.textContent = 'TRANSMIT REQUEST';
+      })
+      .catch(() => {
+        // 2. Fallback to client-side EmailJS directly
+        if (typeof emailjs !== 'undefined') {
+          emailjs.send(SERVICE_ID, TEMPLATE_ID, {
+            user_name: name,
+            user_email: email,
+            user_company: company || 'Not specified',
+            message: message,
+            reply_to: email,
+            to_email: 'hello@noxusdynamics.com'
+          }, PUBLIC_KEY).then(() => {
+            showStatus('success', '[ TRANSMISSION SUCCESSFUL ✔ — OUR TEAM WILL ALIGN AN INTEGRATION STRATEGY ]');
+            form.reset();
+            submitBtn.disabled = false;
+            btnText.textContent = 'TRANSMIT REQUEST';
+          }).catch((err) => {
+            console.error('EmailJS Send Error:', err);
+            fallbackToMailto(name, email, company, message);
+          });
+        } else {
           fallbackToMailto(name, email, company, message);
-        });
-      } else {
-        // Fallback to direct mailto if template or public key is unconfigured
-        setTimeout(() => {
-          fallbackToMailto(name, email, company, message);
-        }, 600);
-      }
+        }
+      });
     });
 
     function fallbackToMailto(name, email, company, message) {

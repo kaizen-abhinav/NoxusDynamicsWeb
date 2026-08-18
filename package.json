@@ -16,6 +16,7 @@
     "test:ci": "jest --ci --coverage"
   },
   "dependencies": {
+    "@emailjs/nodejs": "^5.0.2",
     "@google/genai": "^2.4.0",
     "@hookform/resolvers": "^5.2.1",
     "autoprefixer": "^10.4.21",

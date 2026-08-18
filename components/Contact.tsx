@@ -103,9 +103,26 @@ export function Contact() {
           >
             Leave A<br />Request
           </h2>
-          <p className="font-body-terminal text-[13px] text-[#1a1c1c]/60 leading-relaxed border-l-2 border-[#1a1c1c]/20 pl-4">
+          <p className="font-body-terminal text-[13px] text-[#1a1c1c]/60 leading-relaxed border-l-2 border-[#1a1c1c]/20 pl-4 mb-5">
             Initiate an agritech deployment dialogue. Provide your operational parameters below.
           </p>
+          {/* Contact info */}
+          <div className="flex flex-col gap-2 border-t border-[#1a1c1c]/10 pt-4">
+            <a
+              href="mailto:hello@noxusdynamics.com"
+              className="font-mono-terminal text-[10px] tracking-widest text-[#1a1c1c]/70 hover:text-[#e2241f] transition-colors uppercase flex items-center gap-2 min-h-[36px]"
+              aria-label="Email NoxusDynamics"
+            >
+              <span className="font-bold text-[#e2241f]">✉</span> hello@noxusdynamics.com
+            </a>
+            <a
+              href="tel:+919562375601"
+              className="font-mono-terminal text-[10px] tracking-widest text-[#1a1c1c]/70 hover:text-[#e2241f] transition-colors uppercase flex items-center gap-2 min-h-[36px]"
+              aria-label="Call NoxusDynamics"
+            >
+              <span className="font-bold text-[#e2241f]">✆</span> +91 95623 75601
+            </a>
+          </div>
         </div>
 
         {/* Form */}
@@ -271,10 +288,12 @@ export function Contact() {
         className="hidden md:flex px-4 sm:px-6 md:px-12 py-16 sm:py-24 md:py-32 bg-[#f0f0f0] flex-col xl:flex-row justify-between relative overflow-hidden gap-10 sm:gap-16 xl:gap-8"
         aria-labelledby="contact-title"
       >
+        <div className="max-w-screen-2xl mx-auto w-full flex flex-col xl:flex-row justify-between gap-10 sm:gap-16 xl:gap-8">
         <div className="xl:w-5/12 relative z-10 flex flex-col">
           <h2
             id="contact-title"
-            className="text-[2.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-bold tracking-tighter leading-[0.8] mb-8 sm:mb-12 uppercase flex flex-col items-start"
+            className="font-bold tracking-tighter leading-[0.8] mb-8 sm:mb-12 uppercase flex flex-col items-start"
+            style={{ fontSize: 'clamp(2.5rem, 7vw, 8rem)' }}
           >
             <div className="flex items-center">
               <span className="w-4 h-8 sm:w-8 sm:h-16 bg-[#e2241f] mr-3 sm:mr-6 shrink-0 inline-block" aria-hidden="true"></span>
@@ -282,9 +301,29 @@ export function Contact() {
             </div>
             <div>Request</div>
           </h2>
-          <p className="text-base sm:text-xl max-w-lg opacity-80 leading-relaxed mb-10 sm:mb-16 font-medium pl-7 sm:pl-14">
+          <p className="text-base sm:text-xl max-w-lg opacity-80 leading-relaxed mb-8 sm:mb-12 font-medium pl-7 sm:pl-14">
             Initiate an agritech deployment dialogue. Provide your operational parameters below and our systems will align an integration strategy.
           </p>
+          {/* Direct contact info */}
+          <div className="pl-7 sm:pl-14 flex flex-col gap-3 border-t border-[#1a1c1c]/10 pt-6">
+            <p className="text-[10px] font-mono tracking-widest uppercase opacity-50 font-bold">Direct Contact</p>
+            <a
+              href="mailto:hello@noxusdynamics.com"
+              className="text-sm font-bold hover:text-[#e2241f] transition-colors flex items-center gap-3 min-h-[44px]"
+              aria-label="Email NoxusDynamics"
+            >
+              <span className="text-[#e2241f] text-base">✉</span>
+              hello@noxusdynamics.com
+            </a>
+            <a
+              href="tel:+919562375601"
+              className="text-sm font-bold hover:text-[#e2241f] transition-colors flex items-center gap-3 min-h-[44px]"
+              aria-label="Call NoxusDynamics"
+            >
+              <span className="text-[#e2241f] text-base">✆</span>
+              +91 95623 75601
+            </a>
+          </div>
         </div>
 
         <div className="xl:w-1/2 relative z-10 w-full max-w-3xl xl:max-w-none self-end xl:self-auto">
@@ -454,6 +493,8 @@ export function Contact() {
             </button>
           </form>
         </div>
+
+        </div>{/* end max-w-screen-2xl */}
       </section>
     </div>
   );

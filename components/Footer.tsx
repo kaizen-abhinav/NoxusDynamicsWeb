@@ -40,6 +40,23 @@ export function Footer({ isTeamPage = false }: FooterProps) {
           >
             Noxus Studios <ArrowUpRight className="w-3 h-3 text-[#e2241f]" aria-hidden="true" />
           </a>
+          {/* Contact info */}
+          <div className="flex flex-col gap-1.5">
+            <a
+              href="mailto:hello@noxusdynamics.com"
+              className="text-white/50 hover:text-[#e2241f] transition-colors text-[9px] tracking-[0.1em] uppercase font-bold min-h-[36px] flex items-center gap-2"
+              aria-label="Email NoxusDynamics"
+            >
+              hello@noxusdynamics.com
+            </a>
+            <a
+              href="tel:+919562375601"
+              className="text-white/50 hover:text-[#e2241f] transition-colors text-[9px] tracking-[0.1em] uppercase font-bold min-h-[36px] flex items-center gap-2"
+              aria-label="Call NoxusDynamics"
+            >
+              +91 95623 75601
+            </a>
+          </div>
 
 
         </div>
@@ -68,16 +85,24 @@ export function Footer({ isTeamPage = false }: FooterProps) {
         </div>
 
         <div className="flex flex-col items-start lg:items-end gap-6 w-full lg:w-auto">
-          <nav className="flex flex-wrap gap-8 text-xs font-bold font-mono tracking-widest uppercase" aria-label="Footer navigation">
+          <nav className="flex flex-wrap gap-6 sm:gap-8 text-xs font-bold font-mono tracking-widest uppercase" aria-label="Footer navigation">
             <a
               href="mailto:hello@noxusdynamics.com"
-              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c]"
+              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c] min-h-[44px] flex items-center"
+              aria-label="Email NoxusDynamics"
             >
               hello@noxusdynamics.com
             </a>
             <a
+              href="tel:+919562375601"
+              className="hover:text-[#e2241f] underline underline-offset-[6px] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e2241f] focus-visible:ring-offset-2 focus-visible:ring-offset-[#1a1c1c] min-h-[44px] flex items-center"
+              aria-label="Call NoxusDynamics"
+            >
+              +91 95623 75601
+            </a>
+            <a
               href={STUDIOS_URL}
-              className="flex items-center gap-1 hover:text-[#e2241f] transition-colors"
+              className="flex items-center gap-1 hover:text-[#e2241f] transition-colors min-h-[44px]"
               rel="noopener noreferrer"
             >
               Noxus Studios <ArrowUpRight className="w-3.5 h-3.5 text-[#e2241f]" aria-hidden="true" />

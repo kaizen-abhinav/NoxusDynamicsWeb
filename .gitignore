@@ -3,5 +3,10 @@ node_modules/
 coverage/
 .DS_Store
 *.log
+*.err
+*.tsbuildinfo
+cookies*.txt
+output*.html
 .env*
 !.env.example
+

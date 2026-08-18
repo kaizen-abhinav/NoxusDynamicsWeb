@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import emailjs from '@emailjs/nodejs';
 
 // Define the expected form data shape - without index signature to avoid TS4111
 interface ContactFormData {
@@ -157,29 +158,69 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // In production, integrate with your email service (Resend, SendGrid, etc.)
-    // Example with Resend:
-    // import { Resend } from 'resend';
-    // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'Contact Form <contact@noxusdynamics.com>',
-    //   to: 'hello@noxusdynamics.com',
-    //   subject: `New Contact: ${sanitized.name}`,
-    //   text: `Name: ${sanitized.name}\nEmail: ${sanitized.email}\nCompany: ${sanitized.company}\n\n${sanitized.message}`,
-    // });
+    // --- EmailJS Server-Side Integration ---
+    const serviceId = process.env['EMAILJS_SERVICE_ID']?.trim();
+    const templateId = process.env['EMAILJS_TEMPLATE_ID']?.trim();
+    const publicKey = process.env['EMAILJS_PUBLIC_KEY']?.trim();
+    const privateKey = process.env['EMAILJS_PRIVATE_KEY']?.trim();
 
-    // For now, simulate successful submission
-    console.info('Contact form submission:', {
-      name: sanitized.name,
-      email: sanitized.email,
-      company: sanitized.company,
-      messageLength: sanitized.message.length,
-      ip,
-      timestamp: new Date().toISOString(),
+    console.log('DEBUG EMAILJS KEYS:', { 
+      serviceId, 
+      templateId, 
+      publicKey, 
+      privateKeyLength: privateKey ? privateKey.length : 0,
+      privateKeyEndsWithR: privateKey?.endsWith('\r')
     });
 
-    // Simulate processing delay
-    await new Promise(resolve => setTimeout(resolve, 500));
+    if (serviceId && templateId && publicKey) {
+      try {
+        await emailjs.send(
+          serviceId,
+          templateId,
+          {
+            // Map form fields to EmailJS template variables
+            user_name: sanitized.name,
+            user_email: sanitized.email,
+            user_company: sanitized.company || 'Not specified',
+            message: sanitized.message,
+            reply_to: sanitized.email,
+            to_email: process.env['CONTACT_EMAIL'] || 'hello@noxusdynamics.com',
+          },
+          {
+            publicKey,
+            ...(privateKey ? { privateKey } : {}),
+          }
+        );
+
+        console.info('Contact form sent via EmailJS:', {
+          name: sanitized.name,
+          email: sanitized.email,
+          company: sanitized.company,
+          messageLength: sanitized.message.length,
+          ip,
+          timestamp: new Date().toISOString(),
+        });
+      } catch (emailError) {
+        console.error('EmailJS error:', emailError);
+        // Don't expose EmailJS internals — return generic error
+        return NextResponse.json(
+          { error: 'Failed to send message. Please try again or contact us directly.' },
+          { status: 500 }
+        );
+      }
+    } else {
+      // EmailJS not configured — log and simulate for local dev
+      console.info('[DEV] EmailJS not configured. Contact form submission:', {
+        name: sanitized.name,
+        email: sanitized.email,
+        company: sanitized.company,
+        messageLength: sanitized.message.length,
+        ip,
+        timestamp: new Date().toISOString(),
+      });
+      // Simulate processing delay in dev
+      await new Promise(resolve => setTimeout(resolve, 500));
+    }
 
     return NextResponse.json(
       { success: true, message: 'Message sent successfully. We\'ll respond within 24 hours.' },
