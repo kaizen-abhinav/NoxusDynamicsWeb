@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /private/
+
+Sitemap: https://noxusdynamics.com/sitemap.xml
+Sitemap: https://studios.noxusdynamics.com/sitemap.xml

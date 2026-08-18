@@ -6,6 +6,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const routes = [
     '',
+    '/studios',
+    '/studios/index.html',
+    '/studios/contact.html',
     '/team',
     '/privacy-policy',
     '/terms-of-service',
@@ -18,7 +21,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified,
-    changeFrequency: route === '' ? 'weekly' : 'monthly',
-    priority: route === '' ? 1 : 0.8,
+    changeFrequency: (route === '' || route === '/studios' || route === '/studios/index.html') ? 'weekly' : 'monthly',
+    priority: route === '' ? 1.0 : (route.startsWith('/studios') ? 0.9 : 0.8),
   }));
 }
