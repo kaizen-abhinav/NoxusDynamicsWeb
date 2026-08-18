@@ -7,6 +7,8 @@ export const organizationSchema = {
   name: 'NOXUSDYNAMICS',
   url: 'https://noxusdynamics.com',
   logo: 'https://noxusdynamics.com/Logo.png',
+  telephone: '+91-9562375601',
+  email: 'hello@noxusdynamics.com',
   sameAs: [
     'https://twitter.com/noxusdynamics',
     'https://linkedin.com/company/noxusdynamics',
@@ -80,6 +82,7 @@ export const contactSchema = {
     name: 'NOXUSDYNAMICS',
     url: 'https://noxusdynamics.com',
     email: 'hello@noxusdynamics.com',
+    telephone: '+91-9562375601',
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'Kottayam',

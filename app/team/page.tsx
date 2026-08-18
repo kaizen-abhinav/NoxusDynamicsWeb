@@ -31,7 +31,6 @@ const team: TeamMember[] = [
   { name: "Reuben Mathew", role: "SYSTEMS INTEGRATION ENG.", image: "/team/Reuben Mathew.png", alt: "Reuben Mathew, Systems Integration Engineer" },
   { name: "Christy Roy", role: "WEB DEVELOPER", image: "/team/Christy.jpg", alt: "Christy Roy, Web Developer" },
   { name: "Allen Thomas Alex", role: "BUSINESS RELATIONS", image: "/team/Allen Thomas.png", alt: "Allen Thomas Alex, Business Relations" },
-  { name: "Abhirami M", role: "VISUAL DESIGNER", image: "/team/Abhirami.jpg", alt: "Abhirami M, Visual Designer" },
   { name: "Gokul M", role: "WEBMASTER", image: "/team/gokul.jpg", alt: "Gokul M, Webmaster" },
   { name: "Ian Luke", role: "MARKETING HEAD", image: "/team/Ian.jpg", alt: "Ian Luke, Marketing Head" },
 ];

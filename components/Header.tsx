@@ -169,57 +169,59 @@ export function Header() {
 
       {/* ===== DESKTOP HEADER (md:+) ===== */}
       <header
-        className="hidden md:flex flex-col lg:flex-row justify-between items-start lg:items-center p-4 sm:p-6 md:p-8 border-b-4 border-transparent w-full uppercase text-xs md:text-sm tracking-widest font-bold z-50 relative bg-[#f0f0f0] text-[#1a1c1c]"
+        className="hidden md:block border-b-4 border-transparent w-full z-50 relative bg-[#f0f0f0] text-[#1a1c1c] uppercase text-xs tracking-widest font-bold"
         role="banner"
       >
-        <div className="flex justify-between items-center w-full lg:w-auto">
-          <Link href="/" className="flex items-center group" aria-label="NOXUSDYNAMICS Home">
-            <Image
-              src="/new-combined-logo.png"
-              alt="NOXUSDYNAMICS Logo"
-              width={400}
-              height={80}
-              className="h-5 sm:h-6 md:h-8 w-auto flex-shrink-0 object-contain"
-              priority
-            />
-          </Link>
-        </div>
-
-        <div className="flex lg:flex flex-col lg:flex-row gap-6 sm:gap-8 lg:gap-16 items-start lg:items-center w-full lg:w-auto mt-6 sm:mt-8 lg:mt-0 pb-4 lg:pb-0">
-          <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 opacity-70 font-mono text-xs" aria-label="Location and time info">
-            <span>KOCHI</span>
-            <time suppressHydrationWarning>{time || "00:00:00 GMT+5:30"}</time>
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6 flex flex-col lg:flex-row justify-between items-start lg:items-center">
+          <div className="flex justify-between items-center w-full lg:w-auto">
+            <Link href="/" className="flex items-center group" aria-label="NOXUSDYNAMICS Home">
+              <Image
+                src="/new-combined-logo.png"
+                alt="NOXUSDYNAMICS Logo"
+                width={400}
+                height={80}
+                className="h-5 sm:h-6 md:h-8 w-auto flex-shrink-0 object-contain"
+                priority
+              />
+            </Link>
           </div>
 
-          <nav className="flex flex-wrap gap-4 sm:gap-6 xl:gap-8 text-xs font-extrabold" aria-label="Main navigation">
-            <Link href="/#projects" className="hover:text-[#e2241f] transition-colors" aria-label="Projects">
-              Projects
-            </Link>
-            <Link href="/#services" className="hover:text-[#e2241f] transition-colors" aria-label="Work">
-              Work
-            </Link>
-            <Link href="/team" className="text-[#e2241f]" aria-label="Team" aria-current="page">
-              Team
-            </Link>
-            <Link href="/#services" className="hover:text-[#e2241f] transition-colors" aria-label="Services">
-              Services
-            </Link>
-            <Link href="/#contact" className="hover:text-[#e2241f] transition-colors" aria-label="Contact">
-              Contact
-            </Link>
-            <a
-              href={STUDIOS_URL}
-              className="flex items-center gap-1 text-[#e2241f] hover:opacity-70 transition-opacity"
-              aria-label="Noxus Studios"
-              rel="noopener noreferrer"
-            >
-              Studios <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
-            </a>
-          </nav>
+          <div className="flex lg:flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-12 items-start lg:items-center w-full lg:w-auto mt-5 sm:mt-6 lg:mt-0 pb-3 lg:pb-0">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-6 opacity-70 font-mono text-xs" aria-label="Location and time info">
+              <span>KOCHI</span>
+              <time suppressHydrationWarning>{time || "00:00:00 GMT+5:30"}</time>
+            </div>
 
-          <Link href="/#contact" className="text-[#1a1c1c] flex items-center gap-1 hover:opacity-70 transition-opacity ml-0 lg:ml-auto font-extrabold" aria-label="Get in touch">
-            GET IN TOUCH <ArrowUpRight className="w-5 h-5 stroke-[3] text-[#e2241f]" aria-hidden="true" />
-          </Link>
+            <nav className="flex flex-wrap gap-3 sm:gap-5 xl:gap-7 text-xs font-extrabold" aria-label="Main navigation">
+              <Link href="/#projects" className="hover:text-[#e2241f] transition-colors min-h-[44px] flex items-center" aria-label="Projects">
+                Projects
+              </Link>
+              <Link href="/#services" className="hover:text-[#e2241f] transition-colors min-h-[44px] flex items-center" aria-label="Work">
+                Work
+              </Link>
+              <Link href="/team" className="text-[#e2241f] min-h-[44px] flex items-center" aria-label="Team" aria-current="page">
+                Team
+              </Link>
+              <Link href="/#services" className="hover:text-[#e2241f] transition-colors min-h-[44px] flex items-center" aria-label="Services">
+                Services
+              </Link>
+              <Link href="/#contact" className="hover:text-[#e2241f] transition-colors min-h-[44px] flex items-center" aria-label="Contact">
+                Contact
+              </Link>
+              <a
+                href={STUDIOS_URL}
+                className="flex items-center gap-1 text-[#e2241f] hover:opacity-70 transition-opacity min-h-[44px]"
+                aria-label="Noxus Studios"
+                rel="noopener noreferrer"
+              >
+                Studios <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
+              </a>
+            </nav>
+
+            <Link href="/#contact" className="text-[#1a1c1c] flex items-center gap-1 hover:opacity-70 transition-opacity ml-0 lg:ml-auto font-extrabold min-h-[44px]" aria-label="Get in touch">
+              GET IN TOUCH <ArrowUpRight className="w-5 h-5 stroke-[3] text-[#e2241f]" aria-hidden="true" />
+            </Link>
+          </div>
         </div>
       </header>
     </>
