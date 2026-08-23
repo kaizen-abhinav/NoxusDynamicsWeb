@@ -2130,7 +2130,16 @@
       .hbg { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; }
       #hero { padding: 0; min-height: 100vh; min-height: 100svh; height: 100vh; height: 100svh; }
       .hero-photo { width: 100%; height: 100%; }
-      .hero-photo img { object-fit: contain !important; object-position: center center !important; }
+      .hero-photo img { object-fit: cover !important; object-position: center center !important; }
+      .hero-hotspot {
+        top: 57%;
+        bottom: auto;
+        left: 4.5%;
+        width: 48%;
+        height: 4.5%;
+        min-width: 150px;
+        min-height: 44px;
+      }
       .hero-art { inset: 18% -30% 4% 6%; opacity: .7; }
       .hero-title { font-size: clamp(56px, 18vw, 130px); letter-spacing: -.01em; }
       .hero-meta { max-width: 360px; gap: 10px; }
@@ -2167,9 +2176,17 @@
 
     /* Small Mobile & Compact Phones (<=480px) */
     @media (max-width: 480px) {
-      .hero-hotspot { left: 5.5%; bottom: 6.5%; width: 34%; height: 5.2%; min-width: 120px; min-height: 36px; }
+      .hero-hotspot {
+        top: 57%;
+        bottom: auto;
+        left: 4.5%;
+        width: 50%;
+        height: 4.5%;
+        min-width: 140px;
+        min-height: 44px;
+      }
       #hero { padding: 0; min-height: 100vh; min-height: 100svh; height: 100vh; height: 100svh; }
-      .hero-photo img { object-fit: contain !important; object-position: center center !important; }
+      .hero-photo img { object-fit: cover !important; object-position: center center !important; }
       .hero-art { inset: 22% -45% 2% -4%; opacity: .6; }
       .hero-title { font-size: clamp(48px, 16vw, 110px); }
       .hero-site { font-size: 10px; letter-spacing: .2em; }
@@ -2436,11 +2453,12 @@
   <main id="mainContent">
     <!-- HERO -->
     <section id="hero">
-      <div class="hero-photo">
+      <picture class="hero-photo">
+        <source srcset="phone%20view.png" media="(max-width: 768px)">
         <img src="ChatGPT%20Image%20May%2024,%202026,%2007_09_10%20AM.png"
           alt="Noxus Studios digital innovation hero artwork showcasing web development, AI solutions, and software engineering in Kerala"
           fetchpriority="high" decoding="async">
-      </div>
+      </picture>
       <a class="hero-hotspot" href="#works" aria-label="Explore Noxus Studios digital projects and selected works"></a>
       <h1 class="sr-only">Noxus Studios — Digital Innovation, Web Development &amp; AI Solutions in Kerala</h1>
     </section>
