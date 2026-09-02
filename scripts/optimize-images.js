@@ -15,7 +15,7 @@ const WIDTHS = [400, 800, 1200, 1600]; // Responsive widths
 
 const imageExtensions = ['.jpg', '.jpeg', '.png', '.webp'];
 
-async function optimizeImage(inputPath: string, outputDir: string) {
+async function optimizeImage(inputPath, outputDir) {
   const ext = extname(inputPath).toLowerCase();
   const name = basename(inputPath, ext);
   const relativePath = inputPath.replace(IMAGES_DIR + '/', '').replace(ext, '');
@@ -60,10 +60,10 @@ async function optimizeImage(inputPath: string, outputDir: string) {
   }
 }
 
-function findImages(dir: string): string[] {
-  const files: string[] = [];
+function findImages(dir) {
+  const files = [];
 
-  function traverse(currentDir: string) {
+  function traverse(currentDir) {
     const entries = readdirSync(currentDir, { withFileTypes: true });
 
     for (const entry of entries) {

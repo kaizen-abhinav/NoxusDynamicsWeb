@@ -29,12 +29,7 @@ export default [
       'react/no-unescaped-entities': 'warn',
       'react/require-default-props': 'off',
       'react/display-name': 'off',
-
-      // TypeScript rules
-      '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_' }],
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      'react-hooks/set-state-in-effect': 'off',
 
       // General rules
       'no-console': ['warn', { allow: ['warn', 'error', 'info'] }],
