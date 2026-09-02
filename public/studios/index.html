@@ -180,7 +180,7 @@
   <link rel="apple-touch-icon" href="favicon-192.png">
 
   <!-- Critical LCP Image Preload -->
-  <link rel="preload" as="image" href="ChatGPT%20Image%20May%2024,%202026,%2007_09_10%20AM.png" media="(min-width: 769px)" fetchpriority="high">
+  <link rel="preload" as="image" href="../NXS2.png" media="(min-width: 769px)" fetchpriority="high">
   <link rel="preload" as="image" href="phone%20view.png" media="(max-width: 768px)" fetchpriority="high">
 
   <!-- Preconnect & Fonts -->
@@ -207,7 +207,7 @@
   <style>
     /* CSS Performance & Layout Shift Prevention */
     .wc-right { aspect-ratio: 1.6; contain-intrinsic-size: 800px 500px; }
-    .hero-photo img { width: 100%; height: 100%; object-fit: contain; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
     #noiseCanvas { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -2117,7 +2117,7 @@
     /* Tablets / Foldable Devices (769px - 1024px) */
     @media (max-width: 1024px) {
       #hero { padding: 0; }
-      .hero-photo img { object-fit: contain !important; object-position: center center !important; }
+      .hero-photo img { object-fit: cover !important; object-position: center center !important; }
       .hero-art { inset: 12% -18% 6% 22%; }
       .hero-title { font-size: clamp(68px, 16vw, 160px); }
       .wc-inner { display: flex !important; flex-direction: column !important; min-height: auto !important; }
@@ -2422,7 +2422,7 @@
     </div>
     <div class="pre-letters" style="margin-top:-16px">
       <span class="pre-l"
-        style="font-size:clamp(28px,5vw,60px);color:var(--muted);letter-spacing:.4em;font-size:clamp(14px,2.5vw,28px)">DYNAMICS</span>
+        style="font-size:clamp(28px,5vw,60px);color:var(--muted);letter-spacing:.4em;font-size:clamp(14px,2.5vw,28px)">CREATIVE</span>
     </div>
     <p class="pre-sub">Digital Studio — Kerala</p>
     <div id="preProgress"></div>
@@ -2464,7 +2464,7 @@
     <section id="hero">
       <picture class="hero-photo">
         <source srcset="phone%20view.png" media="(max-width: 768px)">
-        <img src="ChatGPT%20Image%20May%2024,%202026,%2007_09_10%20AM.png"
+        <img src="../NXS2.png"
           alt="Noxus Creative digital innovation hero artwork showcasing web development, AI solutions, and software engineering in Kerala"
           fetchpriority="high" decoding="async">
       </picture>
@@ -3430,22 +3430,7 @@
       );
     });
 
-    // MOUSE PARALLAX ON HERO ART (RAF throttled)
-    const heroArt = document.querySelector('.hero-photo img');
-    if (heroArt) {
-      let heroScheduled = false;
-      document.addEventListener('mousemove', e => {
-        if (!heroScheduled) {
-          heroScheduled = true;
-          requestAnimationFrame(() => {
-            const xPct = (e.clientX / window.innerWidth - .5);
-            const yPct = (e.clientY / window.innerHeight - .5);
-            gsap.to(heroArt, { x: xPct * 20, y: yPct * 12, duration: 1.5, ease: 'power2.out' });
-            heroScheduled = false;
-          });
-        }
-      }, { passive: true });
-    }
+
 
     // HAMBURGER / MOBILE MENU
     const hbg = document.getElementById('hbg');
