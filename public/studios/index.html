@@ -2136,9 +2136,9 @@
       nav { padding: 14px 18px; min-height: 56px; }
       .nav-r .nav-a, .nav-btn { display: none; }
       .hbg { display: flex; width: 40px; height: 40px; align-items: center; justify-content: center; }
-      #hero { padding: 0; min-height: 100vh; min-height: 100svh; height: 100vh; height: 100svh; }
-      .hero-photo { width: 100%; height: 100%; }
-      .hero-photo img { object-fit: cover !important; object-position: center center !important; }
+      #hero { padding: 0; min-height: auto; height: auto; aspect-ratio: auto; }
+      .hero-photo { width: 100%; height: auto; position: relative; }
+      .hero-photo img { object-fit: contain !important; object-position: center center !important; height: auto !important; }
       .hero-hotspot {
         top: 57%;
         bottom: auto;
@@ -2193,8 +2193,8 @@
         min-width: 140px;
         min-height: 44px;
       }
-      #hero { padding: 0; min-height: 100vh; min-height: 100svh; height: 100vh; height: 100svh; }
-      .hero-photo img { object-fit: cover !important; object-position: center center !important; }
+      #hero { padding: 0; min-height: auto; height: auto; aspect-ratio: auto; }
+      .hero-photo img { object-fit: contain !important; object-position: center center !important; height: auto !important; }
       .hero-art { inset: 22% -45% 2% -4%; opacity: .6; }
       .hero-title { font-size: clamp(48px, 16vw, 110px); }
       .hero-site { font-size: 10px; letter-spacing: .2em; }
