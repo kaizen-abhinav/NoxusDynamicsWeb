@@ -38,7 +38,7 @@ export function Footer({ isTeamPage = false }: FooterProps) {
             className="flex items-center gap-1 text-white/60 hover:text-[#e2241f] transition-colors text-[9px] tracking-[0.12em] uppercase font-bold"
             rel="noopener noreferrer"
           >
-            Noxus Studios <ArrowUpRight className="w-3 h-3 text-[#e2241f]" aria-hidden="true" />
+            Noxus Creative <ArrowUpRight className="w-3 h-3 text-[#e2241f]" aria-hidden="true" />
           </a>
           {/* Contact info */}
           <div className="flex flex-col gap-1.5">
@@ -105,7 +105,7 @@ export function Footer({ isTeamPage = false }: FooterProps) {
               className="flex items-center gap-1 hover:text-[#e2241f] transition-colors min-h-[44px]"
               rel="noopener noreferrer"
             >
-              Noxus Studios <ArrowUpRight className="w-3.5 h-3.5 text-[#e2241f]" aria-hidden="true" />
+              Noxus Creative <ArrowUpRight className="w-3.5 h-3.5 text-[#e2241f]" aria-hidden="true" />
             </a>
           </nav>
           <p className="text-xs opacity-40 font-mono tracking-widest uppercase mt-4 lg:mt-0" aria-label={`Copyright ${year} NOXUSDYNAMICS`}>

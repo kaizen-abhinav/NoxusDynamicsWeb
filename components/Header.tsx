@@ -159,7 +159,7 @@ export function Header() {
                 rel="noopener noreferrer"
               >
                 <span className="material-symbols-outlined text-lg">movie_edit</span>
-                NOXUS STUDIOS
+                NOXUS CREATIVE
                 <ArrowUpRight className="w-3.5 h-3.5 ml-auto text-[#e2241f]" aria-hidden="true" />
               </a>
             </nav>
@@ -211,7 +211,7 @@ export function Header() {
               <a
                 href={STUDIOS_URL}
                 className="flex items-center gap-1 text-[#e2241f] hover:opacity-70 transition-opacity min-h-[44px]"
-                aria-label="Noxus Studios"
+                aria-label="Noxus Creative"
                 rel="noopener noreferrer"
               >
                 Studios <ArrowUpRight className="w-3.5 h-3.5 stroke-[3]" aria-hidden="true" />
