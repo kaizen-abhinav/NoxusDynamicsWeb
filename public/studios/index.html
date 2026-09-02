@@ -181,7 +181,6 @@
 
   <!-- Critical LCP Image Preload -->
   <link rel="preload" as="image" href="/NXS2.png" media="(min-width: 769px)" fetchpriority="high">
-  <link rel="preload" as="image" href="/phone%20view.png" media="(max-width: 768px)" fetchpriority="high">
 
   <!-- Preconnect & Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -640,7 +639,7 @@
     .hero-photo img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center center;
       display: block
     }
@@ -2463,7 +2462,6 @@
     <!-- HERO -->
     <section id="hero">
       <picture class="hero-photo">
-        <source srcset="/phone%20view.png" media="(max-width: 768px)">
         <img src="/NXS2.png"
           alt="Noxus Creative digital innovation hero artwork showcasing web development, AI solutions, and software engineering in Kerala"
           fetchpriority="high" decoding="async">
