@@ -333,77 +333,7 @@
       mix-blend-mode: overlay
     }
 
-    /* PRELOADER */
-    #pre {
-      position: fixed;
-      inset: 0;
-      background: #06060A;
-      z-index: 100000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden
-    }
 
-    .pre-letters {
-      display: flex;
-      gap: 0;
-      overflow: hidden
-    }
-
-    .pre-l {
-      font-family: 'Bebas Neue', cursive;
-      font-size: clamp(80px, 15vw, 180px);
-      line-height: .9;
-      transform: translateY(120%);
-      letter-spacing: -.02em
-    }
-
-    .pre-l.red {
-      color: var(--red)
-    }
-
-    .pre-l.acid {
-      color: var(--acid)
-    }
-
-    .pre-sub {
-      font-size: 10px;
-      letter-spacing: .4em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-top: 12px;
-      opacity: 0
-    }
-
-    #preProgress {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--red), var(--acid));
-      width: 0%;
-      transition: width .05s
-    }
-
-    #preNum {
-      position: absolute;
-      bottom: 24px;
-      right: 32px;
-      font-size: 11px;
-      color: var(--muted);
-      font-family: 'Space Mono', monospace;
-      letter-spacing: .15em
-    }
-
-    .pre-wipe {
-      position: absolute;
-      inset: 0;
-      background: var(--red);
-      transform: scaleY(0);
-      transform-origin: bottom
-    }
 
     /* NAV */
     nav {
@@ -2405,21 +2335,7 @@
   <div id="cur"></div>
   <div id="cur2"></div>
 
-  <!-- PRELOADER -->
-  <div id="pre">
-    <div class="pre-letters">
-      <span class="pre-l">N</span><span class="pre-l red">O</span><span class="pre-l">X</span><span
-        class="pre-l acid">U</span><span class="pre-l">S</span>
-    </div>
-    <div class="pre-letters" style="margin-top:-16px">
-      <span class="pre-l"
-        style="font-size:clamp(28px,5vw,60px);color:var(--muted);letter-spacing:.4em;font-size:clamp(14px,2.5vw,28px)">CREATIVE</span>
-    </div>
-    <p class="pre-sub">Digital Studio — Kerala</p>
-    <div id="preProgress"></div>
-    <div id="preNum">0%</div>
-    <div class="pre-wipe"></div>
-  </div>
+
 
   <!-- MOBILE MENU -->
   <div class="mob-menu" id="mobMenu">
@@ -3192,74 +3108,10 @@
       el.addEventListener('mouseleave', () => { if (cur) { cur.style.width = '10px'; cur.style.height = '10px'; } if (cur2) cur2.style.opacity = '1'; }, { passive: true });
     });
 
-    // PRELOADER (Robust execution handling + fallback)
-    let preloaderStarted = false;
-    function runPreloader() {
-      if (preloaderStarted) return;
-      preloaderStarted = true;
-      if (typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-      }
-      const letters = document.querySelectorAll('.pre-l');
-      const bar = document.getElementById('preProgress');
-      const num = document.getElementById('preNum');
-      const wipe = document.querySelector('.pre-wipe');
-      const sub = document.querySelector('.pre-sub');
-      let pct = 0;
-      const timer = setInterval(() => {
-        pct += Math.random() * 8 + 4;
-        if (pct > 100) pct = 100;
-        if (bar) bar.style.width = pct + '%';
-        if (num) num.textContent = Math.round(pct) + '%';
-        if (pct >= 100) {
-          clearInterval(timer);
-          finishPreloader();
-        }
-      }, 30);
-
-      function finishPreloader() {
-        if (typeof gsap !== 'undefined') {
-          const tl = gsap.timeline({
-            onComplete: () => {
-              if (wipe) {
-                gsap.to(wipe, { scaleY: 1, duration: .5, ease: 'expo.inOut', transformOrigin: 'bottom' });
-                setTimeout(() => {
-                  gsap.to(wipe, {
-                    scaleY: 0, duration: .4, ease: 'expo.inOut', transformOrigin: 'top',
-                    onComplete: () => {
-                      const pre = document.getElementById('pre');
-                      if (pre) pre.style.display = 'none';
-                      heroIn();
-                    }
-                  });
-                }, 400);
-              } else {
-                const pre = document.getElementById('pre');
-                if (pre) pre.style.display = 'none';
-                heroIn();
-              }
-            }
-          });
-          if (letters.length > 0) {
-            tl.to(letters, { y: 0, duration: .6, stagger: .05, ease: 'expo.out' });
-          }
-          if (sub) {
-            tl.to(sub, { opacity: 1, y: 0, duration: .4, ease: 'power2.out' }, '-=.2');
-          }
-        } else {
-          const pre = document.getElementById('pre');
-          if (pre) pre.style.display = 'none';
-          heroIn();
-        }
-      }
-    }
-
-    if (document.readyState === 'complete') {
-      runPreloader();
-    } else {
-      window.addEventListener('load', runPreloader);
-      setTimeout(runPreloader, 1200); // Fail-safe fallback to ensure page displays immediately
-    }
+    // PRELOADER REMOVED
+    document.addEventListener('DOMContentLoaded', () => {
+      heroIn();
+    });
 
     function heroIn() {
       const heroTarget = document.querySelector('.hero-site, .hero-title span, .hero-kicker, .hero-cta');
