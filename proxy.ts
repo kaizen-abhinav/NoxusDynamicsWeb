@@ -83,7 +83,7 @@ function getSessionId(request: NextRequest): string {
   return request.cookies.get('session_id')?.value || 'anonymous';
 }
 
-export function middleware(request: NextRequest) {
+export function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const hostname = request.headers.get('host') || '';
   

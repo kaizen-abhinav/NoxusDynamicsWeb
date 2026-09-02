@@ -49,6 +49,8 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  // Turbopack configuration
+  turbopack: {},
   // Compression
   compress: true,
   // Power by header
