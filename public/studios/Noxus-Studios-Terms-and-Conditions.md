@@ -1,6 +1,6 @@
 # Terms & Conditions
 
-**Noxus Studios** — a creative brand operated under **Noxus Dynamics**
+**Noxus Creative** — a creative brand operated under **Noxus Dynamics**
 Effective date: [Insert date]
 Last updated: [Insert date]
 
@@ -10,7 +10,7 @@ Last updated: [Insert date]
 
 ## 1. Introduction
 
-These Terms & Conditions ("Terms") govern the provision of web design, development, branding, UX, SEO, and related digital services (the "Services") by **[Legal contracting name — see note at end]**, trading as **Noxus Studios** / **Noxus Dynamics** ("Noxus," "we," "us," "our"), to any individual or business that engages us for a project ("Client," "you," "your").
+These Terms & Conditions ("Terms") govern the provision of web design, development, branding, UX, SEO, and related digital services (the "Services") by **[Legal contracting name — see note at end]**, trading as **Noxus Creative** / **Noxus Dynamics** ("Noxus," "we," "us," "our"), to any individual or business that engages us for a project ("Client," "you," "your").
 
 By signing a proposal, paying an invoice, or instructing us in writing to begin work, you agree to be bound by these Terms. If you do not agree, please do not engage our Services.
 
@@ -117,7 +117,7 @@ These Terms, together with the applicable proposal/SOW, constitute the entire ag
 
 ## 21. Contact Us
 
-**Noxus Studios / Noxus Dynamics**
+**Noxus Creative / Noxus Dynamics**
 Email: hello@noxusdynamics.com
 Location: Kerala, India
 
@@ -125,10 +125,10 @@ Location: Kerala, India
 
 ### A note on legal structure (please read before publishing)
 
-"Noxus Studios" and "Noxus Dynamics" are currently brand names, not a registered legal entity. A brand name alone cannot be a party to a contract — the actual contracting party in the eyes of the law is whichever natural person or registered entity is doing business under that name. Until you register a business structure (sole proprietorship, LLP, or private limited company), you are almost certainly operating as a **sole proprietorship by default**, which means:
+"Noxus Creative" and "Noxus Dynamics" are currently brand names, not a registered legal entity. A brand name alone cannot be a party to a contract — the actual contracting party in the eyes of the law is whichever natural person or registered entity is doing business under that name. Until you register a business structure (sole proprietorship, LLP, or private limited company), you are almost certainly operating as a **sole proprietorship by default**, which means:
 
 - You personally (not "Noxus") are legally responsible for the studio's contracts, debts, and liabilities.
-- Client agreements and invoices should state your actual legal name, e.g. *"[Your Full Name], trading as Noxus Studios (a Noxus Dynamics brand)"*, not just the brand name.
+- Client agreements and invoices should state your actual legal name, e.g. *"[Your Full Name], trading as Noxus Creative (a Noxus Dynamics brand)"*, not just the brand name.
 - You cannot use suffixes like "Pvt. Ltd." or "LLP" unless you've actually registered as one — doing so would misrepresent your legal status.
 - If you plan to invoice clients, take retainers, or scale the team, it's worth looking into at least an MSME/Udyam registration (fast, low-cost) or a proper LLP/Pvt. Ltd. registration, both to formalize GST/invoicing and to separate personal liability from the business.
 

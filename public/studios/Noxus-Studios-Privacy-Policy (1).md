@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Noxus Studios** — a creative brand operated under **Noxus Dynamics**
+**Noxus Creative** — a creative brand operated under **Noxus Dynamics**
 Effective date: [Insert date]
 Last updated: [Insert date]
 
@@ -10,7 +10,7 @@ Last updated: [Insert date]
 
 ## 1. Introduction
 
-This Privacy Policy explains how **[Legal contracting name]**, trading as **Noxus Studios / Noxus Dynamics** ("we," "us," "our"), collects, uses, shares, and protects information when you visit noxus-studios.vercel.app (or any successor domain, the "Site"), contact us, or engage us for services.
+This Privacy Policy explains how **[Legal contracting name]**, trading as **Noxus Creative / Noxus Dynamics** ("we," "us," "our"), collects, uses, shares, and protects information when you visit noxus-studios.vercel.app (or any successor domain, the "Site"), contact us, or engage us for services.
 
 ## 2. Scope
 
@@ -110,7 +110,7 @@ Our Site is available worldwide. If you access it from outside India, your data 
 For questions, requests, or complaints about this Policy or your personal data:
 
 **[Name of Grievance Officer / responsible contact]**
-Noxus Studios / Noxus Dynamics
+Noxus Creative / Noxus Dynamics
 Email: hello@noxusdynamics.com
 Location: Kerala, India
 
